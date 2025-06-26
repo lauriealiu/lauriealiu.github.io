@@ -1,38 +1,49 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family:Helvetica;
   margin: 0;
-  background: #f8f8f8;
+  background: #DFC5FE;
 }
 
-header {
-  background: #333;
-  color: white;
-  padding: 1rem;
+header .container {
+  display: flex;
+  color: black; 
+  background: white;
+  padding: 10px;
+  gap: 250px;
   text-align: center;
+  margin: 30px;
 }
 
-nav button {
-  background: none;
-  border: none;
-  color: white;
-  margin: 0 10px;
-  font-size: 1rem;
-  cursor: pointer;
+h1.title {
+  font-family: 'titleFont', sans-serif;
+  font-size: 3rem;
+  margin-left: 30px;
 }
 
-nav button:hover {
+nav ul {
+  display: flex;          
+  justify-content: center;
+  list-style: none;       
+  gap: 190px;      
+  margin-top: 47px;
+}
+nav ul li a {
+  font-family: 'titleFont', sans-serif;
+  text-decoration: none;  
+  color: black;          
+  font-weight: bold;
+  font-size: 30px;
+}
+
+nav ul li a:hover {
   text-decoration: underline;
 }
 
-main {
-  padding: 2rem;
-}
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #eee;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+
+@font-face {
+  font-family: 'titleFont';
+  src: url('/public/fonts/Chloe-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
