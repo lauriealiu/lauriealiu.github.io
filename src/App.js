@@ -1,18 +1,30 @@
 import React from 'react';
 import './styles.css';
-import miiImage from './assets/photos/mii.png'; // adjust the path if needed
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import Home from './pages/Home';
+
+
+//import Home from './Home';    
+//import About from './About';   
+import Resume from './pages/Resume'; 
 
 function App() {
   return (
-    <div>
+    <Router>
       <Header />
-      <main>
-        <h2 className="bigText">Hi there! I'm Laurie, an aspiring... something!</h2>
-        <img src={miiImage} alt="It's Mii!" />
-      </main>
-    </div>
+
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/*/<Route path="#about" element={<About />} />*/}
+        <Route path="/resume" element={<Resume />} />  {/* your resume page */}
+      </Routes>
+    </Router>
+
+
   );
 }
 
 export default App;
+
