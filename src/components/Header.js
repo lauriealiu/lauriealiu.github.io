@@ -9,8 +9,12 @@ function Header() {
         <h1 className="title">Laurie Liu</h1>
         <nav>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><a href="#about">About</a></li>
+            <li>
+                <Link to="/">Home</Link>
+                </li>
+            <li>
+                <Link to="/about">About</Link>
+                </li>
             <li>
                 <a 
                 href="/resume"
