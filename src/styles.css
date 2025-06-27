@@ -1,0 +1,60 @@
+body {
+  font-family:Helvetica;
+  margin: 0;
+  background: #DFC5FE;
+}
+
+header .container {
+  display: flex;
+  color: black; 
+  background: white;
+  padding: 10px;
+  gap: 250px;
+  text-align: center;
+  margin: 30px;
+}
+
+h1.title {
+  font-family: 'titleFont', sans-serif;
+  font-size: 3rem;
+  margin-left: 30px;
+}
+
+nav ul {
+  display: flex;          
+  justify-content: center;
+  list-style: none;       
+  gap: 190px;      
+  margin-top: 47px;
+}
+nav ul li a {
+  font-family: 'titleFont', sans-serif;
+  text-decoration: none;  
+  color: black;          
+  font-weight: bold;
+  font-size: 30px;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+h2.bigText {
+  font-family: 'titleFont', sans-serif;
+  font-size: 3rem;
+  margin-left: 30px;
+}
+
+img {
+  width: 500px;
+  border-radius: 8px;
+  float: right;
+  margin-right: 30px;
+}
+
+@font-face {
+  font-family: 'titleFont';
+  src: url('/public/fonts/Chloe-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
