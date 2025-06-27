@@ -54,7 +54,7 @@ img {
 
 @font-face {
   font-family: 'titleFont';
-  src: url('/public/fonts/Chloe-Regular.otf') format('opentype');
+  src: url('/assets/fonts/Chloe-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
