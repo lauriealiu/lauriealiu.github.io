@@ -1,5 +1,5 @@
 import React from 'react';
-import miiImage from '../assets/photos/mii.png'; // adjust path as needed
+import miiImage from '../assets/photos/mii.png'; 
 
 function Home() {
   return (
