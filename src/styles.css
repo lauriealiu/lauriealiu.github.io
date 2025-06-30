@@ -21,6 +21,9 @@ header .container {
   background: white;
   padding: 10px 30px;
   margin: 30px;
+  border-radius: 8px;
+  margin-left: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1.title,
@@ -110,4 +113,27 @@ img {
   border-radius: 8px;
   float: right;
   margin-right: 30px;
+}
+
+/* ========== RESUME ========== */
+.resume-box 
+{
+  background-color: white;
+  padding: 20px;
+  margin-left: 40px;
+  margin-top: 20px;
+  border-radius: 8px;
+  max-width: 1387px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.resume-box ul 
+{
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.resume-box li {
+  margin-bottom: 8px;
+  line-height: 1.5;
 }
