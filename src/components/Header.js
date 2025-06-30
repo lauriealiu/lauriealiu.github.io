@@ -6,7 +6,7 @@ function Header() {
   return (
     <header>
       <div className="container">
-        <h1 className="title">Laurie Liu</h1>
+        <h1 className="title">Laurie Liu ⭒˚｡⋆ 𓆑 ⋆｡𖦹</h1>
         <nav>
           <ul>
             <li>

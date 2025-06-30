@@ -1,122 +1,113 @@
-body 
-{
+/* ========== GLOBAL STYLES ========== */
+body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   background: #DFC5FE;
 }
 
-
-header .container 
-{
-  display: flex;
-  color: black; 
-  background: white;
-  padding: 10px;
-  gap: 250px;
-  text-align: center;
-  margin: 30px;
-}
-
-h1.title 
-{
-  font-family: 'titleFont', sans-serif;
-  font-size: 3rem;
-  margin-left: 30px;
-}
-
-nav ul 
-{
-  display: flex;          
-  justify-content: center;
-  list-style: none;       
-  gap: 190px;      
-  margin-top: 47px;
-}
-nav ul li a 
-{
-  font-family: 'titleFont', sans-serif;
-  text-decoration: none;  
-  color: black;          
-  font-weight: bold;
-  font-size: 30px;
-}
-
-nav ul li a:hover 
-{
-  text-decoration: underline;
-}
-
-h2.bigText 
-{
-  font-family: 'titleFont', sans-serif;
-  font-size: 3rem;
-  margin-left: 30px;
-}
-
-img 
-{
-  width: 500px;
-  border-radius: 8px;
-  float: right;
-  margin-right: 30px;
-}
-
-@font-face 
-{
+@font-face {
   font-family: 'titleFont';
   src: url('./assets/fonts/Chloe-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
-.nav-link, button.nav-link {
+/* ========== HEADER ========== */
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: black;
+  background: white;
+  padding: 10px 30px;
+  margin: 30px;
+}
+
+h1.title,
+h2.bigText,
+nav a,
+.nav-link,
+button.nav-link {
+  font-family: 'titleFont', sans-serif;
+}
+
+h1.title {
+  font-size: 3rem;
+}
+
+h2.bigText {
+  font-size: 3rem;
+  margin-left: 30px;
+}
+
+/* ========== NAVIGATION ========== */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 90px;
+  margin-top: 20px;
+  padding: 0;
+}
+
+nav a,
+.nav-link,
+button.nav-link {
   background: none;
   border: none;
   color: black;
   cursor: pointer;
-  font-family: 'titleFont';
   font-size: 30px;
   line-height: 1.5;
   font-weight: bold;
+  text-decoration: none;
 }
 
-.nav-link:hover, button.nav-link:hover {
+nav a:hover,
+.nav-link:hover,
+button.nav-link:hover {
   text-decoration: underline;
 }
 
-.dropdown 
-{
+/* ========== DROPDOWN ========== */
+.dropdown {
   position: relative;
 }
 
-.dropdownContent
-{
+.dropdownContent {
   display: none;
-  transform: translateX(-17%);
   position: absolute;
   background-color: #444;
   padding: 10px;
   border-radius: 6px;
   top: 100%;
-  left: 0;
+  left: 50;
   min-width: 120px;
   z-index: 1;
+  transform: translateX(-17%);
 }
 
-.dropdownContent a 
-{
+.dropdownContent a {
   display: block;
   color: white;
   text-decoration: none;
   padding: 5px 10px;
 }
 
-.dropdownContent a:hover 
-{
+.dropdownContent a:hover {
   background-color: #666;
 }
 
-.dropdown:hover .dropdownContent 
-{
+.dropdown:hover .dropdownContent {
   display: block;
+  text-align: center;
+}
+
+
+/* ========== IMAGES ========== */
+img {
+  width: 500px;
+  border-radius: 8px;
+  float: right;
+  margin-right: 30px;
 }
