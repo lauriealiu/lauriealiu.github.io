@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 function Home() {
   const [isBouncing, setIsBouncing] = useState(false);
   const [isBlink, setBlink] = useState(false);
+  const [bounceClass, setBounceClass] = useState('');
 
   const handleMouseEnter = () => {
     setIsBouncing(true);
@@ -22,7 +23,7 @@ function Home() {
       <img 
       src={isBlink ? miiBlink :miiGIF} 
       alt="It's Mii!" 
-      className={isBouncing ? 'bounce' : ''} 
+      className={`${bounceClass} ${isBouncing ? 'bounce' : ''}`.trim()}
       onMouseEnter={handleMouseEnter}
       onClick={handleClick}
       style={{ cursor: 'pointer' }}
