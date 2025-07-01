@@ -143,3 +143,80 @@ img {
   margin-bottom: 8px;
   line-height: 1.5;
 }
+
+.resume-carousel {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+  max-width: 800px;
+}
+
+.resume-carousel h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card h2 {
+  color: #5A4FCF;
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 0.2rem;
+}
+
+
+.card h4 {
+  font-style: italic;
+  color: #777;
+  margin-top: 0;         
+  margin-bottom: 1rem;
+}
+
+.card ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+  line-height: 1.6;
+}
+
+
+.card img {
+  margin-top: 20px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.carousel-container {
+  padding: 2rem 1rem;
+}
+
+.custom-dot-list {
+  bottom: -30px;
+}
+
+.react-multi-carousel-dot--active button {
+  background-color: #5A4FCF;
+}
+
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+
