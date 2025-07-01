@@ -120,6 +120,26 @@ img {
   width: 350px;
 }
 
+.bounce {
+  animation: bounceAnim 0.3s ease;
+}
+
+@keyframes bounceAnim {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-20px); }
+  60%  { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+
+.big-bounce {
+  animation: bigBounceAnim 0.5s ease;
+}
+@keyframes bigBounceAnim {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-60px); }
+  60%  { transform: translateY(20px); }
+  100% { transform: translateY(0); }
+}
 
 /* ========== RESUME ========== */
 .resume-box 
