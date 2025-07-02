@@ -3,6 +3,8 @@ import tutor from '../assets/photos/tutor.png';
 import ucsc from '../assets/photos/ucsc.png';
 import spacelab from '../assets/photos/spacelab.png';
 import llnl from '../assets/photos/llnl.png';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 function Resume() {
   const [flippedIndexes, setFlippedIndexes] = useState({});
@@ -16,7 +18,7 @@ function Resume() {
 
   const companies = [
     {
-      company: "Americorps GO Tutors",
+      company: "Americorps GO Tutors @ MATCH Charter High School",
       img: tutor,
       roles: [
         {
