@@ -66,7 +66,8 @@ function Resume() {
               description: (
                 <ul>
                   <li>Taught CLNI-85 course on global action, social justice, and international perspectives</li>
-                  <li>Assisted freshmen integrating into college life and succeeding academically</li>
+                  <li>Created lesson plans and presented weekly lectures to a class of 22</li>
+                  <li>Received an A+ and college credits for teaching</li>
                   <li>Created Discord channels and facilitated student communication</li>
                 </ul>
               )
@@ -77,8 +78,8 @@ function Resume() {
               description: (
                 <ul>
                   <li>Assisted professors with core classes</li>
-                  <li>Created lesson plans and presented weekly lectures to a class of 22</li>
-                  <li>Received an A+ and college credits for teaching</li>
+                  <li>Assisted freshmen integrating into college life and succeeding academically</li>
+                  <li>Created Discord channels and facilitated student communication</li>
                 </ul>
               )
             }
