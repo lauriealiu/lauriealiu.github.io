@@ -127,7 +127,7 @@ function Resume() {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>WORK EXPERIENCE</h1>
+      <h1 className="resume-title">WORK EXPERIENCE</h1>
       <div className="resume-container">
         {companies.map((company, idx) => (
           <div
@@ -145,7 +145,6 @@ function Resume() {
                 <div className="company-name">{company.company}</div>
               </div>
               <div className="card-back">
-                <h2>{company.company}</h2>
                 {company.roles.map((role, i) => (
                   <div key={i} style={{ marginBottom: '1.5em' }}>
                     <h3>{role.title}</h3>
