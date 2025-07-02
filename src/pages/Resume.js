@@ -124,6 +124,8 @@ function Resume() {
   ];
 
   return (
+    <div>
+    <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>WORK EXPERIENCE</h1>
     <div className="resume-container">
       {companies.map((company, idx) => (
         <div
@@ -152,6 +154,7 @@ function Resume() {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 }
