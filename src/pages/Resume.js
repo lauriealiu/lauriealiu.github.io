@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import tutor from '../assets/photos/tutor.png';
-import ilc from '../assets/photos/ilc.png';
+import ucsc from '../assets/photos/ucsc.png';
 import spacelab from '../assets/photos/spacelab.png';
 import llnl from '../assets/photos/llnl.png';
 
@@ -35,8 +35,8 @@ function Resume() {
       ]
     },
     {
-      company: "University of California, Santa Cruz - College Nine",
-      img: ilc,
+      company: "University of California, Santa Cruz",
+      img: ucsc,
       roles: [
         {
           title: "International Living Center Intern",
@@ -125,36 +125,37 @@ function Resume() {
 
   return (
     <div>
-    <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>WORK EXPERIENCE</h1>
-    <div className="resume-container">
-      {companies.map((company, idx) => (
-        <div
-          key={idx}
-          className={`card ${flippedIndexes[idx] ? "flipped" : ""}`}
-          onClick={() => toggleFlip(idx)}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => { if(e.key === 'Enter' || e.key === ' ') toggleFlip(idx)}}
-          aria-pressed={flippedIndexes[idx] ? "true" : "false"}
-        >
-          <div className="card-inner">
-            <div className="card-front">
-              <img src={company.img} alt={company.company} />
-            </div>
-            <div className="card-back">
-              <h2>{company.company}</h2>
-              {company.roles.map((role, i) => (
-                <div key={i} style={{marginBottom: '1.5em'}}>
-                  <h3>{role.title}</h3>
-                  <h4><em>{role.dates}</em></h4>
-                  {role.description}
-                </div>
-              ))}
+      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>WORK EXPERIENCE</h1>
+      <div className="resume-container">
+        {companies.map((company, idx) => (
+          <div
+            key={idx}
+            className={`card ${flippedIndexes[idx] ? "flipped" : ""}`}
+            onClick={() => toggleFlip(idx)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleFlip(idx) }}
+            aria-pressed={flippedIndexes[idx] ? "true" : "false"}
+          >
+            <div className="card-inner">
+              <div className="card-front">
+                <img src={company.img} alt={company.company} style={{ maxWidth: '150px', maxHeight: '150px' }} />
+                <div className="company-name">{company.company}</div>
+              </div>
+              <div className="card-back">
+                <h2>{company.company}</h2>
+                {company.roles.map((role, i) => (
+                  <div key={i} style={{ marginBottom: '1.5em' }}>
+                    <h3>{role.title}</h3>
+                    <h4><em>{role.dates}</em></h4>
+                    {role.description}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
     </div>
   );
 }
