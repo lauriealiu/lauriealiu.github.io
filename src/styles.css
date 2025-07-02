@@ -1,10 +1,4 @@
 /* ========== GLOBAL STYLES ========== */
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  background: #DFC5FE;
-}
-
 @font-face {
   font-family: 'titleFont';
   src: url('./assets/fonts/Chloe-Regular.otf') format('opentype');
@@ -12,25 +6,19 @@ body {
   font-style: normal;
 }
 
-/* ========== HEADER ========== */
-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: black;
-  background: white;
-  padding: 10px 30px;
-  margin: 30px;
-  border-radius: 8px;
-  margin-left: 40px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #DFC5FE;
 }
 
+/* ========== TYPOGRAPHY ========== */
 h1.title,
 h2.bigText,
 nav a,
 .nav-link,
-button.nav-link {
+button.nav-link,
+.resume-title {
   font-family: 'titleFont', sans-serif;
 }
 
@@ -41,6 +29,25 @@ h1.title {
 h2.bigText {
   font-size: 3rem;
   margin-left: 30px;
+}
+
+.resume-title {
+  font-size: 3rem;
+  text-align: center;
+  margin: 40px 0 10px;
+}
+
+/* ========== HEADER ========== */
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: black;
+  background: white;
+  padding: 10px 30px;
+  margin: 30px 40px 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* ========== NAVIGATION ========== */
@@ -61,8 +68,8 @@ button.nav-link {
   color: black;
   cursor: pointer;
   font-size: 30px;
-  line-height: 1.5;
   font-weight: bold;
+  line-height: 1.5;
   text-decoration: none;
 }
 
@@ -80,21 +87,22 @@ button.nav-link:hover {
 .dropdownContent {
   display: none;
   position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-48%);
   background-color: #444;
   padding: 10px;
   border-radius: 6px;
-  top: 100%;
-  left: 50;
   min-width: 120px;
   z-index: 1;
-  transform: translateX(-17%);
+  text-align: center;
 }
 
 .dropdownContent a {
   display: block;
   color: white;
-  text-decoration: none;
   padding: 5px 10px;
+  text-decoration: none;
 }
 
 .dropdownContent a:hover {
@@ -103,9 +111,7 @@ button.nav-link:hover {
 
 .dropdown:hover .dropdownContent {
   display: block;
-  text-align: center;
 }
-
 
 /* ========== IMAGES ========== */
 img {
@@ -120,53 +126,48 @@ img {
   width: 350px;
 }
 
+/* ========== ANIMATIONS ========== */
 .bounce {
   animation: bounceAnim 0.3s ease;
 }
 
 @keyframes bounceAnim {
-  0%   { transform: translateY(0); }
-  30%  { transform: translateY(-20px); }
-  60%  { transform: translateY(10px); }
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-20px); }
+  60% { transform: translateY(10px); }
   100% { transform: translateY(0); }
 }
 
 .big-bounce {
   animation: bigBounceAnim 0.5s ease;
 }
+
 @keyframes bigBounceAnim {
-  0%   { transform: translateY(0); }
-  30%  { transform: translateY(-60px); }
-  60%  { transform: translateY(20px); }
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-60px); }
+  60% { transform: translateY(20px); }
   100% { transform: translateY(0); }
 }
 
-/* ========== RESUME ========== */
-
-.resume-title {
-  font-family: 'titleFont', sans-serif;
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 10px;
-  margin-top: 40px;
-}
-
-
+/* ========== RESUME CARDS ========== */
 .resume-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: center; /* centers cards horizontally */
+  justify-content: center;
   padding: 20px;
   margin: 0 auto;
 }
 
 .card {
   width: 300px;
-  height: 400px;
+  height: 400px; 
   perspective: 1000px;
   margin: 20px;
+  position: relative;
+  overflow: visible;
 }
+
 
 .card:hover {
   transform: scale(1.05);
@@ -180,56 +181,60 @@ img {
   height: 100%;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .card.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
-  position: absolute;
+.card-back {
+  background-color: white;
+  color: black;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;   
+  overflow-x: hidden;  
+  border-radius: 12px;
+  box-sizing: border-box;
+  max-height: 100%;   
+  word-wrap: break-word; 
+  white-space: normal;  
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;  
+}
+
+.card-front,
+.card-back {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   backface-visibility: hidden;
   border-radius: 12px;
   box-sizing: border-box;
-  box-shadow: none;
-
+  display: flex;
+  flex-direction: column;
 }
 
 .card-front {
   background-color: white;
   display: flex;
-  flex-direction: column; 
-  align-items: center;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   font-size: 1.2rem;
   padding: 20px;
   text-align: center;
-  
 }
 
 .card-front img {
-  max-width: 120px;      
-  height: auto;
-  margin-bottom: 12px;   
-  margin-left: 30px; 
-  width: 120px;       
+  width: 120px;
   height: 120px;
   object-fit: contain;
+  margin-bottom: 12px;
+  margin-left: 30px;
 }
-
-.card-back {
-  background-color: white;
-  color: black;
-  padding: 20px;
-  transform: rotateY(180deg);
-  overflow-y: auto;
-}
-
-
-
 
