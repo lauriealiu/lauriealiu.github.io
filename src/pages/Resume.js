@@ -3,6 +3,7 @@ import tutor from '../assets/photos/tutor.png';
 import ucsc from '../assets/photos/ucsc.png';
 import spacelab from '../assets/photos/spacelab.png';
 import llnl from '../assets/photos/llnl.png';
+import sdsu from '../assets/photos/sdsu.png';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -150,7 +151,7 @@ function Resume() {
         },
         {
           company: 'San Diego State University (SDSU)',
-          img: ucsc,
+          img: sdsu,
           roles: [
             {
               title: "M.S. Information Systems (Incoming Fall 2025)",
@@ -194,7 +195,7 @@ function Resume() {
     mobile: { breakpoint: { max: 768, min: 0 }, items: 1 }
   };
 
-  return (
+return (
     <div>
       <Carousel
         responsive={responsive}
@@ -209,8 +210,8 @@ function Resume() {
       >
         {sections.map((section, sectionIdx) => (
           <div key={sectionIdx} style={{ padding: '20px' }}>
-            <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>{section.label}</h2>
-            <div className="resume-container" style={{ justifyContent: 'center', display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+            <h2 className="resume-title">{section.label}</h2>
+            <div className="resume-container">
               {section.cards.map((card, cardIdx) => {
                 const flippedKey = `${sectionIdx}-${cardIdx}`;
                 return (
@@ -220,18 +221,16 @@ function Resume() {
                     onClick={() => toggleFlip(sectionIdx, cardIdx)}
                     role="button"
                     tabIndex={0}
-                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleFlip(sectionIdx, cardIdx); }}
                     aria-pressed={flippedIndexes[flippedKey] ? 'true' : 'false'}
-                    style={{ cursor: 'pointer' }}
                   >
                     <div className="card-inner">
-                      <div className="card-front" style={{ padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <img src={card.img} alt={card.company} style={{ maxWidth: '150px', maxHeight: '150px', marginBottom: '10px' }} />
-                        <div className="company-name" style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>{card.company}</div>
+                      <div className="card-front">
+                        <img src={card.img} alt={card.company} />
+                        <div className="company-name">{card.company}</div>
                       </div>
-                      <div className="card-back" style={{ padding: '20px', overflowY: 'auto', height: '350px', backgroundColor: '#fff', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
+                      <div className="card-back">
                         {card.roles.map((role, i) => (
-                          <div key={i} style={{ marginBottom: '1.2em' }}>
+                          <div key={i} className="role-entry">
                             <h3>{role.title}</h3>
                             {role.dates && <h4><em>{role.dates}</em></h4>}
                             {role.description}
