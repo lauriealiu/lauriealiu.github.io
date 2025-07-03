@@ -132,6 +132,42 @@ function Resume() {
       ]
     },
     {
+      label: 'Projects',
+      cards: [
+        {
+          company: '3D Exoplanetarium',
+          img: spacelab,
+          roles: [
+            {
+              title: "3D Exoplanetarium",
+              dates: "Jun 2023 - Aug 2023",
+              description: (
+
+                <p>
+                  Exoplanetarium is a project with the goal to explore NASA/CalTech data from the TESS, Kepler and K2 Missions using various degrees of Machine Learning and Deep Natural Networks in the pursuit of Earth-Like planets around nearby stars in the Milky Way Galaxy. My own personal contribution to this project consisting of building the database of the application from scratch to be functional to open and close, as well as displaying data about each individual exoplanet.
+                </p>
+              )
+            }
+          ]
+        },
+        {
+          company: "How Spotify's BaRT Algorithm Recommends New Songs to Users",
+          img: ucsc,
+          roles: [
+            {
+              title: "How Spotify's BaRT Algorithm Recommends New Songs to Users",
+              dates: "Mar 2023 - Jun 2023",
+              description: (
+                <p>
+                  Independent research done on how the global music streaming platform is able to use its algorithm to suggest relevant songs to its users using natural language processing, content-based filtering, and collaborative filtering. I have arranged my findings through a poster (that has been presented) as well as a research paper written using LaTeX.
+                </p>
+              )
+            }
+          ]
+        }
+      ]
+    },
+    {
       label: 'Education',
       cards: [
         {
@@ -139,19 +175,19 @@ function Resume() {
           img: ucsc,
           roles: [
             {
-              title: "B.S. in Computer Science",
+              title: "Bachelor's in Computer Science",
               dates: "Graduated June 2024",
               description: (
-                <ul>
-                  <li>Global Leadership Certificate Recipient</li>
-                  <li>Peer Navigator, Global Action Instructor, ILC Intern</li>
-                </ul>
+
+                <p>
+                  <li>a</li>
+                </p>
               )
             }
           ]
         },
         {
-          company: 'San Diego State University (SDSU)',
+          company: 'San Diego State University',
           img: sdsu,
           roles: [
             {
@@ -160,6 +196,44 @@ function Resume() {
               description: (
                 <ul>
                   <li>Graduate-level coursework in UX, software development, and project management</li>
+                </ul>
+              )
+            }
+          ]
+        }
+      ]
+    },
+    {
+      label: 'Volunteer Experience',
+      cards: [
+        {
+          company: 'UPChieve',
+          img: tutor,
+          roles: [
+            {
+              title: "Online Tutor",
+              dates: "Jan 2025 - Jun 2025",
+              description: (
+                <ul>
+                  <li>Tutored middle and high school students in a range of math subjects, including algebra and geometry</li>
+                  <li>Provided personalized essay support, focusing on structure, clarity, grammar, and voice across college application writing</li>
+                  <li>Guided students through the college prep process, including brainstorming, editing personal statements, and exploring alternative pathways post-secondary school</li>
+                  <li>Adapted instruction to each student’s learning style, goals, and pace to build confidence and subject mastery</li>
+                </ul>
+              )
+            }
+          ]
+        },
+        {
+          company: 'Valley Humane Society',
+          img: sdsu,
+          roles: [
+            {
+              title: "Cat Care Volunteer",
+              dates: "Oct 2018 - Oct 2020",
+              description: (
+                <ul>
+                  <li>Provided care (provide food, clean up) for shelter cats awaiting adoption.</li>
                 </ul>
               )
             }
@@ -196,7 +270,7 @@ function Resume() {
     mobile: { breakpoint: { max: 768, min: 0 }, items: 1 }
   };
 
-return (
+  return (
     <div>
       <Carousel
         responsive={responsive}
