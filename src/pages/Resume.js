@@ -4,8 +4,12 @@ import ucsc from '../assets/photos/ucsc.png';
 import spacelab from '../assets/photos/spacelab.png';
 import llnl from '../assets/photos/llnl.png';
 import sdsu from '../assets/photos/sdsu.png';
+import vhs from '../assets/photos/vhs.png';
+import upchieve from '../assets/photos/upchieve.png';
+import spotify from '../assets/photos/spotify.png';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import pedrozzi from '../assets/photos/pedrozzi.png';
 
 function Resume() {
   const [flippedIndexes, setFlippedIndexes] = useState({});
@@ -139,7 +143,7 @@ function Resume() {
           img: spacelab,
           roles: [
             {
-              title: "3D Exoplanetarium",
+              title: "3D Exoplanetarium Database",
               dates: "Jun 2023 - Aug 2023",
               description: (
 
@@ -152,7 +156,7 @@ function Resume() {
         },
         {
           company: "How Spotify's BaRT Algorithm Recommends New Songs to Users",
-          img: ucsc,
+          img: spotify,
           roles: [
             {
               title: "How Spotify's BaRT Algorithm Recommends New Songs to Users",
@@ -208,7 +212,7 @@ function Resume() {
       cards: [
         {
           company: 'UPChieve',
-          img: tutor,
+          img: upchieve,
           roles: [
             {
               title: "Online Tutor",
@@ -226,7 +230,7 @@ function Resume() {
         },
         {
           company: 'Valley Humane Society',
-          img: sdsu,
+          img: vhs,
           roles: [
             {
               title: "Cat Care Volunteer",
@@ -242,26 +246,49 @@ function Resume() {
       ]
     },
     {
-      label: 'Awards',
-      cards: [
+  label: 'Awards',
+  cards: [
+    {
+      company: 'UCSC Leadership Awards',
+      img: ucsc,
+      roles: [
         {
-          company: 'UCSC Leadership Awards',
-          img: ucsc,
-          roles: [
-            {
-              title: "Jay Johnson Emerging Leader Award",
-              dates: "",
-              description: null
-            },
-            {
-              title: "College Nine Leadership Certificate",
-              dates: "",
-              description: null
-            }
-          ]
+          title: "Jay Johnson Emerging Leader Award",
+          dates: "May 2022",
+          description: (
+            <p>
+              This award is given to students who: Reflects the values, character, spirit, and servitude of Jay, is an up-and-coming leader in our community, demonstrates a growing capacity for commitment to service, and embodies the spirit of selflessness, passion, caring, and humbleness.
+            </p>
+          )
+        },
+        {
+          title: "College Nine Leadership Certificate",
+          dates: "May 2023 and May 2024",
+          description: (
+            <p>
+              The College Service Award goes to students who have contributed significantly to our colleges and campus during their time at College Nine.
+            </p>
+          )
+        }
+      ]
+    },
+    {
+      company: 'Pedrozzi Foundation Scholarship',
+      img: pedrozzi,
+      roles: [
+        {
+          title: "Kim Cupps Memorial Undergraduate Scholarship",
+          dates: "May 2020",
+          description: (
+            <p>
+              This scholarship honors students who embody the legacy of Kim Cupps through demonstrated leadership, academic excellence, and community service.
+            </p>
+          )
         }
       ]
     }
+  ]
+}
   ];
 
   const responsive = {
