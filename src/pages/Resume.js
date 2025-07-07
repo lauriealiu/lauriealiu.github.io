@@ -184,7 +184,29 @@ function Resume() {
               description: (
 
                 <p>
-                  <li>a</li>
+                  <li>Member of SASE (Society of Asian Scientists & Engineers</li>
+                  <li>Relevant Coursework:</li>
+                  <ul>
+                      <li>Relevant Coursework:</li>
+                      <li>Applied Discrete Mathematics</li>
+                      <li>Business Information Systems</li>
+                      <li>Business Strategy and Information Systems</li>
+                      <li>Computational Methods and Applications</li>
+                      <li>Computational Models</li>
+                      <li>Computer Architecture</li>
+                      <li>Computer Systems and C Programming</li>
+                      <li>Foundations of Video Game Design</li>
+                      <li>Introduction to Computer Graphics</li>
+                      <li>Introduction to Data Structures and Algorithms</li>
+                      <li>Mathematical Methods for Engineers I</li>
+                      <li>Probability and Statistics for Engineers</li>
+                      <li>Technical Writing for Computer Science and Engineering</li>
+
+
+
+
+                  </ul>
+                  
                 </p>
               )
             }
@@ -196,10 +218,10 @@ function Resume() {
           roles: [
             {
               title: "M.S. Information Systems (Incoming Fall 2025)",
-              dates: "",
+              dates: "Incoming Fall 2025",
               description: (
                 <ul>
-                  <li>Graduate-level coursework in UX, software development, and project management</li>
+                  <li> </li>
                 </ul>
               )
             }
@@ -347,7 +369,7 @@ function Resume() {
           </div>
         ))}
       </Carousel>
-      <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '5px' }}>
+      <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '0px' }}>
         <a
           href="pdfResume.pdf"
           target="_blank"
