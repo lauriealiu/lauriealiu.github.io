@@ -201,8 +201,7 @@ function Resume() {
                       <li>Mathematical Methods for Engineers I</li>
                       <li>Probability and Statistics for Engineers</li>
                       <li>Technical Writing for Computer Science and Engineering</li>
-
-
+                      <li>Digital Scholarship Innovation Studio 3D Printing Training</li>
 
 
                   </ul>
@@ -217,8 +216,8 @@ function Resume() {
           img: sdsu,
           roles: [
             {
-              title: "M.S. Information Systems (Incoming Fall 2025)",
-              dates: "",
+              title: "M.S. Information Systems",
+              dates: "Incoming Fall 2025",
               description: (
                 <ul>
 
@@ -369,6 +368,7 @@ function Resume() {
           </div>
         ))}
       </Carousel>
+      <p className="pdf-link">
       <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '0px' }}>
         <a
           href="pdfResume.pdf"
@@ -379,6 +379,7 @@ function Resume() {
           Click here for a PDF version!
         </a>
       </div>
+      </p>
 
     </div>
   );
