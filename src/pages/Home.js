@@ -3,30 +3,24 @@ import miiBlink from '../assets/photos/miiBlink.png';
 import React, { useState } from 'react';
 
 function Home() {
-  const [isBouncing, setIsBouncing] = useState(false);
   const [isBlink, setBlink] = useState(false);
   const [bounceClass, setBounceClass] = useState('');
-
-  const handleMouseEnter = () => {
-    setIsBouncing(true);
-    setTimeout(() => setIsBouncing(false), 300); // Reset after animation
-  };
 
   const handleClick = () => {
     setBlink(prev => !prev);
     setBounceClass('big-bounce');
     setTimeout(() => setBounceClass(''), 500);
   };
+
   return (
-    <div className="container" onMouseMove={handleMouseEnter}>
+    <div className="container">
       <h2 className="bigText">Hi there! I'm Laurie, an aspiring... something!</h2>
       <img 
-      src={isBlink ? miiBlink :miiGIF} 
-      alt="It's Mii!" 
-      className={`${bounceClass} ${isBouncing ? 'bounce' : ''}`.trim()}
-      onMouseEnter={handleMouseEnter}
-      onClick={handleClick}
-      style={{ cursor: 'pointer' }}
+        src={isBlink ? miiBlink : miiGIF} 
+        alt="It's Mii!" 
+        className={bounceClass}
+        onClick={handleClick}
+        style={{ cursor: 'pointer' }}
       />
     </div>
   );
