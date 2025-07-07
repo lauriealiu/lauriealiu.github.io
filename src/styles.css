@@ -141,13 +141,33 @@ img {
 
 /* ========== ABOUT ========== */
 
-.about-container {
+.about-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 40px 20px; 
-  max-width: 900px;
-  line-height: 1.6;
-  text-align: left;
+  padding: 40px 20px;
+  text-align: center;
+  gap: 20px;
 }
+
+.about-image {
+  max-width: 350px;
+  border-radius: 12px;
+  width: 100%;
+  height: auto;
+}
+
+.about-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  padding: 0 20px;
+}
+
+
+
 
 
 
