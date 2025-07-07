@@ -14,7 +14,7 @@ function Home() {
 
   return (
     <div className="container">
-      <h2 className="bigText">Hi there! I'm Laurie, an aspiring... something!</h2>
+      <h2 className="bigText">Hi there! I'm Laurie, an aspiring technologist passionate about building tech solutions that empower communities and close the digital divide."</h2>
       <img 
         src={isBlink ? miiBlink : miiGIF} 
         alt="It's Mii!" 
