@@ -218,10 +218,10 @@ function Resume() {
           roles: [
             {
               title: "M.S. Information Systems (Incoming Fall 2025)",
-              dates: "Incoming Fall 2025",
+              dates: "",
               description: (
                 <ul>
-                  <li> </li>
+
                 </ul>
               )
             }
