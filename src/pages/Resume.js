@@ -246,49 +246,49 @@ function Resume() {
       ]
     },
     {
-  label: 'Awards',
-  cards: [
-    {
-      company: 'UCSC Leadership Awards',
-      img: ucsc,
-      roles: [
+      label: 'Awards',
+      cards: [
         {
-          title: "Jay Johnson Emerging Leader Award",
-          dates: "May 2022",
-          description: (
-            <p>
-              This award is given to students who: Reflects the values, character, spirit, and servitude of Jay, is an up-and-coming leader in our community, demonstrates a growing capacity for commitment to service, and embodies the spirit of selflessness, passion, caring, and humbleness.
-            </p>
-          )
+          company: 'UCSC Leadership Awards',
+          img: ucsc,
+          roles: [
+            {
+              title: "Jay Johnson Emerging Leader Award",
+              dates: "May 2022",
+              description: (
+                <p>
+                  This award is given to students who: Reflects the values, character, spirit, and servitude of Jay, is an up-and-coming leader in our community, demonstrates a growing capacity for commitment to service, and embodies the spirit of selflessness, passion, caring, and humbleness.
+                </p>
+              )
+            },
+            {
+              title: "College Nine Leadership Certificate",
+              dates: "May 2023 and May 2024",
+              description: (
+                <p>
+                  The College Service Award goes to students who have contributed significantly to our colleges and campus during their time at College Nine.
+                </p>
+              )
+            }
+          ]
         },
         {
-          title: "College Nine Leadership Certificate",
-          dates: "May 2023 and May 2024",
-          description: (
-            <p>
-              The College Service Award goes to students who have contributed significantly to our colleges and campus during their time at College Nine.
-            </p>
-          )
-        }
-      ]
-    },
-    {
-      company: 'Pedrozzi Foundation Scholarship',
-      img: pedrozzi,
-      roles: [
-        {
-          title: "Kim Cupps Memorial Undergraduate Scholarship",
-          dates: "May 2020",
-          description: (
-            <p>
-              This scholarship honors students who embody the legacy of Kim Cupps through demonstrated leadership, academic excellence, and community service.
-            </p>
-          )
+          company: 'Pedrozzi Foundation Scholarship',
+          img: pedrozzi,
+          roles: [
+            {
+              title: "Kim Cupps Memorial Undergraduate Scholarship",
+              dates: "May 2020",
+              description: (
+                <p>
+                  This scholarship honors students who embody the legacy of Kim Cupps through demonstrated leadership, academic excellence, and community service.
+                </p>
+              )
+            }
+          ]
         }
       ]
     }
-  ]
-}
   ];
 
   const responsive = {
@@ -347,6 +347,17 @@ function Resume() {
           </div>
         ))}
       </Carousel>
+      <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '5px' }}>
+        <a
+          href="pdfResume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontSize: '18px', fontWeight: 'bold', textDecoration: 'underline', color: '#333' }}
+        >
+          Click here for a PDF version!
+        </a>
+      </div>
+
     </div>
   );
 }
