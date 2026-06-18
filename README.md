@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Laurie Liu Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A personal portfolio website built with React to showcase my background, projects, resume, technical experience, and a few puzzle/game records for fun.
 
-## Available Scripts
+## Live Site
 
-In the project directory, you can run:
+[View Portfolio](https://lauriealiu.github.io)
 
-### `npm start`
+## About
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This portfolio highlights my work and interests across IT support, information systems, computer science, cybersecurity, education, and creative technology. It includes sections for:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Home introduction
+* About me carousel
+* Interactive resume cards
+* Projects
+* Education
+* Volunteer experience
+* Awards
+* Daily puzzle/game records
+* Contact links
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Responsive layout for desktop and mobile
+* Animated page transitions
+* Interactive flip cards for resume details
+* Desktop resume carousel with section buttons
+* Mobile-friendly clickable resume sections
+* Custom animated cursor on desktop
+* Mobile cursor fallback for better touch usability
+* Animated background and playful visual styling
+* Downloadable resume link
 
-### `npm run build`
+## Built With
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* React
+* React Router
+* React Multi Carousel
+* JavaScript
+* CSS
+* GitHub Pages
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```text
+src/
+├── assets/
+│   ├── fonts/
+│   └── photos/
+├── components/
+│   ├── CursorTrail.js
+│   ├── Footer.js
+│   └── Header.js
+├── pages/
+│   ├── About.js
+│   ├── Games.js
+│   ├── Home.js
+│   └── Resume.js
+├── App.js
+└── styles.css
+```
 
-### `npm run eject`
+## Running Locally
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Clone the repository:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/lauriealiu/lauriealiu.github.io.git
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Install dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+```
 
-## Learn More
+Start the development server:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deployment
 
-### Code Splitting
+This site is deployed with GitHub Pages using:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm run deploy
+```
 
-### Analyzing the Bundle Size
+The deployment uses the `gh-pages` branch as the publishing source.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Author
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Created and designed by Laurie Liu.
