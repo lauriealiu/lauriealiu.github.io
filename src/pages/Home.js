@@ -14,7 +14,8 @@ function Home() {
   return (
     <div className="home-container">
       <div className="home-text">
-        <h2 className="bigText">Hello! My name is Laurie Liu.</h2>
+          
+        <h2 className="bigText">Hello! My name is Laurie. </h2>
 
         <p className="home-description">
           I am an M.S. Information Systems student at San Diego State University. I am a dedicated student with a strong passion for IT analysis, project management, frontend development, and a keen interest in new and emerging technologies.

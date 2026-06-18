@@ -1,4 +1,21 @@
 /* ========== GLOBAL STYLES ========== */
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+
+body {
+  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+}
+
+h1.title,
+h2.bigText,
+nav a,
+.nav-link,
+button.nav-link,
+.resume-title,
+.site-footer {
+  font-family: 'titleFont', sans-serif;
+}
+
 @font-face {
   font-family: 'titleFont';
   src: url('./assets/fonts/Chloe-Regular.otf') format('opentype');
@@ -17,11 +34,20 @@ body,
 html,
 body {
   overflow-x: hidden;
+  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.9), transparent 24%),
+    radial-gradient(circle at 82% 68%, rgba(255, 255, 255, 0.7), transparent 26%),
+    radial-gradient(circle at 50% 100%, rgba(170, 120, 255, 0.65), transparent 35%),
+    radial-gradient(circle at 70% 20%, rgba(255, 210, 245, 0.45), transparent 25%),
+    #DFC5FE;
 }
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #DFC5FE;
+
+.app-container,
+.app-main {
+  background: transparent;
 }
+
 
 img {
   border-radius: 8px;
@@ -190,11 +216,24 @@ button.nav-link:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateY(-45px);
+  transform: translateY(-20px);
+  position: relative;
+}
+
+.mii-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  width: 220px;
+  height: 26px;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  filter: blur(7px);
+  z-index: -1;
 }
 
 .mii-image {
-  width:500px;
+  width: 500px;
   height: auto;
   object-fit: contain;
   cursor: pointer;
@@ -391,7 +430,7 @@ button.nav-link:hover {
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 30px 40px;
+  margin: 20px 40px 30px;
   padding: 10px 30px;
   text-align: center;
   color: black;
@@ -408,7 +447,7 @@ button.nav-link:hover {
   }
 
   .home-text {
-    padding: 30px 28px;
+    max-width: 700px;
   }
 
   h2.bigText {
