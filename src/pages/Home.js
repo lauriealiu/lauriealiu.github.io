@@ -7,7 +7,6 @@ function Home() {
   const [bounceClass, setBounceClass] = useState('');
 
   const handleClick = () => {
-    setBlink(prev => !prev);
     setBounceClass('big-bounce');
     setTimeout(() => setBounceClass(''), 500);
   };
@@ -27,12 +26,14 @@ function Home() {
       </div>
 
       <div className="mii-wrapper">
-        <img 
-          src={isBlink ? miiBlink : miiGIF} 
-          alt="It's Mii!" 
-          className={`mii-image ${bounceClass}`}
-          onClick={handleClick}
-        />
+      <img 
+  src={isBlink ? miiBlink : miiGIF} 
+  alt="It's Mii!" 
+  className={`mii-image ${bounceClass}`}
+  onMouseEnter={() => setBlink(true)}
+  onMouseLeave={() => setBlink(false)}
+  onClick={handleClick}
+/>
       </div>
     </div>
   );
