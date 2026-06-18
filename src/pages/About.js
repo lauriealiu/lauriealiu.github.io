@@ -18,6 +18,14 @@ const aboutLines = [
 
 const aboutImages = [me, slub, work, tutor, sdsu];
 
+const imageSizes = [
+  { width: '650px' },
+  { width: '450px' },
+  { width: '900px' },
+  { width: '500px' },
+  { width: '500px' }
+];
+
 const responsive = {
   desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
   tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
@@ -43,6 +51,7 @@ function AboutMeCarousel() {
             src={aboutImages[idx]}
             alt={`About me  ${idx + 1}`}
             className="about-image"
+            style={{ ...imageSizes[idx], height: 'auto' }}
           />
           <h2 className="about-text">{line}</h2>
         </div>
