@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 function CursorTrail() {
   const [trail, setTrail] = useState([]);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [cursorPosition, setCursorPosition] = useState({ x: -100, y: -100 });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -36,8 +36,8 @@ function CursorTrail() {
       <span
         className="custom-cursor"
         style={{
-          left: cursorPosition.x,
-          top: cursorPosition.y
+          left: `${cursorPosition.x}px`,
+          top: `${cursorPosition.y}px`
         }}
       />
 
@@ -46,8 +46,8 @@ function CursorTrail() {
           key={dot.id}
           className="cursor-trail"
           style={{
-            left: dot.x,
-            top: dot.y
+            left: `${dot.x}px`,
+            top: `${dot.y}px`
           }}
         />
       ))}

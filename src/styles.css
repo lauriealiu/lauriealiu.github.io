@@ -25,10 +25,19 @@ button.nav-link,
 
 html,
 body,
-#root,
 .app-container {
-  height: 100%;
+  cursor: none;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
   margin: 0;
+}
+
+.app-container {
+  min-height: 100vh;
 }
 
 html,
@@ -41,7 +50,10 @@ body {
     radial-gradient(circle at 50% 100%, rgba(170, 120, 255, 0.65), transparent 35%),
     radial-gradient(circle at 70% 20%, rgba(255, 210, 245, 0.45), transparent 25%),
     #DFC5FE;
+
 }
+
+
 
 .app-container,
 .app-main {
@@ -437,6 +449,71 @@ button.nav-link:hover {
   font-size: 1rem;
 }
 
+/* ========== CUSTOM CURSOR ========== */
+html,
+body,
+.app-container,
+.app-container * {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999999;
+}
+
+.custom-cursor::before {
+  content: "✦";
+  color: #ffd84d;
+  font-size: 24px;
+  line-height: 1;
+  display: block;
+}
+
+.cursor-trail::before {
+  content: "✦";
+  color: #ffee8c;
+  font-size: 16px;
+  line-height: 1;
+  display: block;
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: trailFade 0.6s ease-out forwards;
+  z-index: 999998;
+}
+.cursor-trail::before {
+  content: "✦";
+  color: #ffee8c;
+  font-size: 16px;
+  line-height: 1;
+  display: block;
+}
+
+
+@keyframes trailFade {
+  0% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3) rotate(45deg);
+  }
+}
+
 /* ========== RESPONSIVE STYLES ========== */
 @media (max-width: 900px) {
   .home-container {
@@ -466,4 +543,5 @@ button.nav-link:hover {
   margin: 0;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
+
 }

@@ -6,11 +6,13 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Resume from './pages/Resume';
+import CursorTrail from './components/CursorTrail';
 
 function App() {
   return (
     <Router>
       <div className="app-container">
+      <CursorTrail />
         <Header />
         <main className="app-main">
           <Routes>
