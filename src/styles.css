@@ -175,6 +175,9 @@ header .container {
 h1.title {
   font-size: 3rem;
 }
+.title-decor {
+  white-space: nowrap;
+}
 
 /* ========== NAVIGATION ========== */
 
@@ -969,8 +972,18 @@ body,
   }
 
   h1.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 2.4rem;
     text-align: center;
+    line-height: 1.1;
+  }
+  
+  .title-decor {
+    display: block;
+    font-size: 0.75em;
+    margin-top: 4px;
   }
 
   nav ul {
@@ -1181,3 +1194,4 @@ button:focus-visible {
     display: none !important;
   }
 }
+

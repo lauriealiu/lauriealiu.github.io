@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import tutor from '../assets/photos/tutor.png';
 import ucsc from '../assets/photos/ucsc.png';
 import spacelab from '../assets/photos/spacelab.png';
@@ -15,6 +15,8 @@ import 'react-multi-carousel/lib/styles.css';
 function Resume() {
   const [flippedIndexes, setFlippedIndexes] = useState({});
   const [mobileSection, setMobileSection] = useState(0);
+  const [desktopSection, setDesktopSection] = useState(0);
+  const carouselRef = useRef(null);
 
   const toggleFlip = (sectionIdx, cardIdx) => {
     const key = `${sectionIdx}-${cardIdx}`;
@@ -497,17 +499,37 @@ function Resume() {
   return (
     <div className="resume-page">
       <div className="resume-desktop">
-        <Carousel
-          responsive={responsive}
-          swipeable
-          draggable
-          showDots
-          infinite={false}
-          keyBoardControl
-          containerClass="carousel-container"
-          dotListClass="custom-dot-list"
-          itemClass="carousel-item-padding-40-px"
-        >
+  <div className="resume-tabs">
+    {sections.map((section, sectionIdx) => (
+      <button
+        key={sectionIdx}
+        type="button"
+        className={`resume-tab ${desktopSection === sectionIdx ? 'active' : ''}`}
+        onClick={() => {
+          setDesktopSection(sectionIdx);
+          carouselRef.current?.goToSlide(sectionIdx);
+        }}
+      >
+        {section.label}
+      </button>
+    ))}
+  </div>
+
+  <Carousel
+  ref={carouselRef}
+  responsive={responsive}
+  swipeable
+  draggable
+  showDots
+  infinite={false}
+  keyBoardControl
+  afterChange={(previousSlide, { currentSlide }) => {
+    setDesktopSection(currentSlide);
+  }}
+  containerClass="carousel-container"
+  dotListClass="custom-dot-list"
+  itemClass="carousel-item-padding-40-px"
+>
           {sections.map((section, sectionIdx) => (
             <div key={sectionIdx} style={{ padding: '20px' }}>
               <h2 className="resume-title">{section.label}</h2>
@@ -552,7 +574,7 @@ function Resume() {
           rel="noopener noreferrer"
           className="resume-download"
         >
-          Download Resume
+          View Resume as PDF
         </a>
       </div>
     </div>
