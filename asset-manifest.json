@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.8b80f419.css",
+    "main.js": "/portfolio/static/js/main.5d08eecb.js",
+    "static/media/me.png": "/portfolio/static/media/me.1e50c0cee24dc84aa4c9.png",
+    "static/media/pikmin.png": "/portfolio/static/media/pikmin.407d85d929213c52bdd8.png",
+    "static/media/miiGIF.gif": "/portfolio/static/media/miiGIF.4f4fd352c1d37aa73f9c.gif",
+    "static/media/gradSlug.png": "/portfolio/static/media/gradSlug.2d17dae1cf5753156f7c.png",
+    "static/media/ucsc.png": "/portfolio/static/media/ucsc.91fbbd87bb0575a3b525.png",
+    "static/media/miiBlink.png": "/portfolio/static/media/miiBlink.e1b98e7dee359f0b0aac.png",
+    "static/media/miiTalk1.png": "/portfolio/static/media/miiTalk1.1f23b94f2ce336254a02.png",
+    "static/media/miiTalk2.png": "/portfolio/static/media/miiTalk2.e483db9cff120522389b.png",
+    "static/media/vhs.png": "/portfolio/static/media/vhs.7a708c39d731ac1c2298.png",
+    "static/media/tutor.png": "/portfolio/static/media/tutor.4c577d42b1c5a0203c80.png",
+    "static/media/spotify.png": "/portfolio/static/media/spotify.15bf0d27b1d9d38f5581.png",
+    "static/media/Chloe-Regular.otf": "/portfolio/static/media/Chloe-Regular.4241d77ac6ac43cacda9.otf",
+    "static/media/work.png": "/portfolio/static/media/work.09b092b5ce8f4a848c09.png",
+    "static/media/upchieve.png": "/portfolio/static/media/upchieve.0ea47d4554e14c038c63.png",
+    "static/media/sdsu.png": "/portfolio/static/media/sdsu.a5ef49b0f3692389245d.png",
+    "static/media/revicons.eot": "/portfolio/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/portfolio/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/spacelab.png": "/portfolio/static/media/spacelab.ed1cf04d70ef76c4c135.png",
+    "static/media/revicons.woff": "/portfolio/static/media/revicons.e8746a624ed098489406.woff",
+    "index.html": "/portfolio/index.html",
+    "main.8b80f419.css.map": "/portfolio/static/css/main.8b80f419.css.map",
+    "main.5d08eecb.js.map": "/portfolio/static/js/main.5d08eecb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b80f419.css",
+    "static/js/main.5d08eecb.js"
+  ]
+}
