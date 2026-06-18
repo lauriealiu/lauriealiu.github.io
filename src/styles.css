@@ -1037,3 +1037,58 @@ button:focus-visible {
     cursor: auto !important;
   }
 }
+
+/* Mobile resume layout */
+.resume-container {
+  width: 100%;
+  padding: 14px 0 28px;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+/* Only Work Experience should horizontally scroll */
+.work-container {
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 18px 16px 32px;
+  box-sizing: border-box;
+  scroll-snap-type: none;
+}
+
+.work-container::before,
+.work-container::after {
+  display: none;
+}
+
+/* Other sections should stay centered */
+.center-container {
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: visible;
+  padding: 18px 16px 32px;
+  box-sizing: border-box;
+}
+
+/* Card sizing */
+.card {
+  width: min(82vw, 330px);
+  height: 430px;
+  flex: 0 0 min(82vw, 330px);
+  margin: 0;
+  scroll-snap-align: none;
+}
+
+.center-container .card {
+  flex: 0 0 min(82vw, 330px);
+}
+
+.card:hover {
+  transform: none;
+}
