@@ -459,6 +459,7 @@ function Resume() {
         {sections.map((section, sectionIdx) => (
           <div key={sectionIdx} style={{ padding: '20px' }}>
             <h2 className="resume-title">{section.label}</h2>
+            <p className="card-hint">Click any card to flip it over.</p>
             <div
   className={`resume-container ${
     section.label === 'Work Experience' ? 'work-container' : 'center-container'

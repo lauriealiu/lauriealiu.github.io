@@ -16,6 +16,10 @@ body,
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -129,6 +133,18 @@ h2.bigText {
   margin: 40px 0 10px;
 }
 
+.resume-title::before {
+  content: "✦ ";
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.resume-title::after {
+  content: " ✦";
+  color: #ffffff;
+  font-size: 2rem;
+}
+
 /* ========== HEADER ========== */
 
 header .container {
@@ -167,6 +183,7 @@ nav a,
 .nav-link,
 button.nav-link {
   position: relative;
+  display: inline-block;
   background: none;
   border: none;
   color: black;
@@ -174,6 +191,7 @@ button.nav-link {
   font-weight: bold;
   line-height: 1.5;
   text-decoration: none;
+  transition: transform 0.18s ease, color 0.2s ease, background 0.2s ease;
 }
 
 /* Sliding underline */
@@ -203,11 +221,21 @@ button.nav-link:hover {
   text-decoration: none;
 }
 
-/* Click sparkle */
-.nav-link {
-  transition: transform 0.18s ease;
+/* Lingering active page indicator */
+.nav-link.active {
+  color: #5f3fa3;
+  background: none;
+  border-radius: 0;
+  padding: 0;
 }
 
+.nav-link.active::before {
+  width: 100%;
+  height: 4px;
+  background: #ffd84d;
+}
+
+/* Click sparkle */
 .nav-link:active {
   transform: scale(0.92);
 }
@@ -225,8 +253,44 @@ button.nav-link:hover {
   white-space: nowrap;
 }
 
-.nav-link:focus::after {
+.nav-link:focus::after,
+.nav-link:active::after {
   animation: navSparkle 1s ease-out;
+}
+
+.nav-link span {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link span::before,
+.nav-link span::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  opacity: 0;
+  color: #ffd84d;
+  font-size: 16px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.nav-link span::before {
+  content: "✦";
+  left: -24px;
+}
+
+.nav-link span::after {
+  content: "✦";
+  right: -24px;
+}
+
+.nav-link:hover span::before,
+.nav-link:hover span::after,
+.nav-link.active span::before,
+.nav-link.active span::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
 }
 
 @keyframes navSparkle {
@@ -257,33 +321,95 @@ button.nav-link:hover {
   position: relative;
 }
 
+.dropdown-toggle {
+  padding: 0;
+}
+
 .dropdownContent {
-  display: none;
+  display: block;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 10px);
   left: 50%;
-  transform: translateX(-48%);
-  min-width: 120px;
-  padding: 10px;
-  background-color: #444;
-  border-radius: 6px;
+  transform: translateX(-50%) translateY(-8px);
+  min-width: 180px;
+  padding: 14px;
+  background: #f3e9ff;
+  border: 2px solid rgba(95, 63, 163, 0.18);
+  border-radius: 18px;
   text-align: center;
   z-index: 20;
+  box-shadow:
+    0 10px 24px rgba(95, 63, 163, 0.18),
+    0 0 18px rgba(255, 216, 77, 0.28);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+}
+
+.dropdownContent::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 16px;
+  height: 16px;
+  background: #f3e9ff;
+  border-left: 2px solid rgba(95, 63, 163, 0.18);
+  border-top: 2px solid rgba(95, 63, 163, 0.18);
 }
 
 .dropdownContent a {
+  position: relative;
   display: block;
-  color: white;
-  padding: 5px 10px;
+  width: fit-content;
+  margin: 6px auto;
+  color: #111;
+  padding: 10px 4px;
   text-decoration: none;
+  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.dropdownContent a::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  width: calc(100% - 16px);
+  height: 3px;
+  background: #ffd84d;
+  border-radius: 999px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.22s ease;
+}
+
+.dropdownContent a:hover::before {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.dropdownContent a::after {
+  display: none;
 }
 
 .dropdownContent a:hover {
-  background-color: #666;
+  color: #5f3fa3;
+  background: none;
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
-.dropdown:hover .dropdownContent {
-  display: block;
+.dropdown:hover .dropdownContent,
+.dropdown:focus-within .dropdownContent {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* ========== HOME ========== */
@@ -352,12 +478,23 @@ button.nav-link:hover {
   height: auto;
   object-fit: contain;
   margin: 0;
+  animation: idleFloat 4s ease-in-out infinite;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .mii-image:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateY(-10px);
   filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes idleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* ========== ANIMATIONS ========== */
@@ -385,6 +522,21 @@ button.nav-link:hover {
 }
 
 /* ========== ABOUT ========== */
+
+.about-image-frame,
+.about-text,
+.home-text {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-image-frame:hover,
+.about-text:hover,
+.home-text:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.16),
+    0 0 18px rgba(255, 216, 77, 0.28);
+}
 
 .about-slide {
   min-height: 62vh;
@@ -433,6 +585,7 @@ button.nav-link:hover {
   margin: 0;
   text-align: left;
 }
+
 /* ========== RESUME CARDS ========== */
 
 .resume-container {
@@ -449,8 +602,9 @@ button.nav-link:hover {
   flex-wrap: nowrap;
   justify-content: flex-start;
   overflow-x: auto;
-  overflow-y: visible;
+  overflow-y: hidden;
   scroll-snap-type: x proximity;
+  padding: 24px 20px 34px;
 }
 
 .work-container::before,
@@ -490,6 +644,16 @@ button.nav-link:hover {
   scroll-snap-align: start;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  overflow: visible;
+  transform-origin: center center;
+}
+
+.card-hint {
+  text-align: center;
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: #5f3fa3;
+  font-weight: bold;
 }
 
 .card.is-flipping {
@@ -497,8 +661,15 @@ button.nav-link:hover {
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
   z-index: 10;
+}
+
+.card:hover,
+.game-card:hover {
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.18),
+    0 0 22px rgba(255, 216, 77, 0.45);
 }
 
 .card-inner {
@@ -511,6 +682,10 @@ button.nav-link:hover {
 
 .card.flipped .card-inner {
   transform: rotateY(180deg);
+}
+
+.card.flipped:hover {
+  transform: none;
 }
 
 .card-front,
@@ -638,12 +813,14 @@ button.nav-link:hover {
   border-radius: 999px;
   text-decoration: none;
   font-weight: bold;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .game-link:hover {
-  transform: scale(1.05);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 14px rgba(255, 216, 77, 0.45);
 }
+
 
 /* ========== CUSTOM CURSOR ========== */
 
@@ -762,29 +939,61 @@ body,
     width: min(100%, 320px);
   }
 
+  .resume-container,
+  .card,
+  .card-inner {
+    overflow: visible;
+  }
+
+  .react-multi-carousel-list,
+  .react-multi-carousel-track,
+  .react-multi-carousel-item {
+    overflow: visible !important;
+  }
+
   .about-slide {
     min-height: auto;
     flex-direction: column;
     gap: 24px;
     padding: 30px 24px;
+    overflow: hidden;
   }
-  
+
   .about-image-frame {
     width: min(330px, 85vw);
     height: min(330px, 85vw);
     padding: 18px;
   }
-  
+
   .about-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
-  
+
   .about-text {
     max-width: 700px;
     padding: 28px 30px;
     font-size: 1.15rem;
     text-align: center;
   }
+}
+
+/* ========== ACCESSIBILITY ========== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #ffd84d;
+  outline-offset: 5px;
+  border-radius: 8px;
 }

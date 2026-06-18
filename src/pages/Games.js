@@ -12,11 +12,11 @@ function Games() {
       name: 'Midi Crossword',
       record: '0:53',
       link: 'https://www.nytimes.com/crosswords/game/midi',
-      note: 'A little bigger than the Mini.'
+      note: 'A go-to mid-sized crossword puzzle.'
     },
     {
       name: 'NYT Crossword',
-      record: '11:35',
+      record: '11:35 (Monday)',
       link: 'https://www.nytimes.com/crosswords/game/daily',
       note: 'Get clued in with wordplay, every day.'
     },
@@ -40,7 +40,7 @@ function Games() {
     },
     {
       name: 'Strands',
-      record: 'Solved with no hints!',
+      record: 'Solved with no hints',
       link: 'https://www.nytimes.com/games/strands',
       note: 'Find hidden words and uncover the day’s theme.'
     },
@@ -69,7 +69,7 @@ function Games() {
       name: 'Patches',
       record: '0:05',
       link: 'https://www.linkedin.com/games/patches',
-      note: 'Piece it together'
+      note: 'Piece it together.'
     },
     {
       name: 'Queens',
@@ -129,7 +129,7 @@ function Games() {
       <h2 className="resume-title">Challenge Me</h2>
 
       <p className="games-intro">
-      Pick a puzzle, play your best game, and try to top my records.
+      Pick a puzzle, play your best game, and try to top my all-time records.
   <br />
   House rules: no hints, no autocorrect, no shortcuts.
       </p>
