@@ -158,32 +158,6 @@ h2.bigText {
   font-size: 2rem;
 }
 
-.resume-download-container {
-  display: flex;
-  justify-content: center;
-  margin: 28px 0 10px;
-}
-
-.resume-download {
-  display: inline-block;
-  padding: 12px 22px;
-  background: #ffd84d;
-  color: #111;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.15rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.resume-download:hover {
-  transform: translateY(-3px) scale(1.04);
-  box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.18),
-    0 0 18px rgba(255, 216, 77, 0.45);
-}
-
 /* ========== HEADER ========== */
 
 header .container {
@@ -273,9 +247,10 @@ button.nav-link:hover {
   height: 4px;
   background: linear-gradient(90deg, #ffd84d, #fff3a6, #ffd84d);
 }
+
 /* Click sparkle */
 .nav-link:active {
-  transform: scale(0.92);
+  transform: translateY(1px);
 }
 
 .nav-link::after {
@@ -624,6 +599,79 @@ button.nav-link:hover {
   text-align: left;
 }
 
+/* ========== RESUME ========== */
+
+.resume-desktop {
+  display: block;
+}
+
+.resume-mobile {
+  display: none;
+}
+
+.resume-download-container {
+  display: flex;
+  justify-content: center;
+  margin: 28px 0 10px;
+}
+
+.resume-download {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #ffd84d;
+  color: #111;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.15rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resume-download:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.18),
+    0 0 18px rgba(255, 216, 77, 0.45);
+}
+
+.resume-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px auto 10px;
+  padding: 0 14px;
+}
+
+.resume-tab {
+  border: none;
+  background: white;
+  color: #111;
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.resume-tab:hover {
+  transform: translateY(-2px);
+  background: #f3e9ff;
+  color: #5f3fa3;
+}
+
+.resume-tab.active {
+  background: #ffd84d;
+  color: #111;
+}
+
+.resume-section {
+  animation: pageFade 0.3s ease;
+}
+
 /* ========== RESUME CARDS ========== */
 
 .resume-container {
@@ -759,9 +807,10 @@ button.nav-link:hover {
   white-space: normal;
 }
 
-.pdf-link a {
-  font-family: sans-serif;
-  font-size: 2rem;
+.project-link {
+  font-weight: bold;
+  text-decoration: underline;
+  color: inherit;
 }
 
 /* ========== FOOTER ========== */
@@ -852,7 +901,6 @@ button.nav-link:hover {
   box-shadow: 0 6px 14px rgba(255, 216, 77, 0.45);
 }
 
-
 /* ========== CUSTOM CURSOR ========== */
 
 html,
@@ -920,6 +968,11 @@ body,
     margin: 20px 24px;
   }
 
+  h1.title {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
   nav ul {
     gap: 35px;
     flex-wrap: wrap;
@@ -930,6 +983,18 @@ body,
   .nav-link,
   button.nav-link {
     font-size: 32px;
+  }
+
+  .custom-cursor,
+  .cursor-trail {
+    display: none !important;
+  }
+
+  html,
+  body,
+  .app-container,
+  .app-container * {
+    cursor: auto !important;
   }
 
   .home-container {
@@ -962,26 +1027,6 @@ body,
     margin: 0;
   }
 
-  .games-page {
-    padding: 20px 24px 50px;
-  }
-
-  .game-card {
-    width: min(100%, 320px);
-  }
-
-  .resume-container,
-  .card,
-  .card-inner {
-    overflow: visible;
-  }
-
-  .react-multi-carousel-list,
-  .react-multi-carousel-track,
-  .react-multi-carousel-item {
-    overflow: visible !important;
-  }
-
   .about-slide {
     min-height: auto;
     flex-direction: column;
@@ -1007,6 +1052,100 @@ body,
     padding: 28px 30px;
     font-size: 1.15rem;
     text-align: center;
+  }
+
+  .resume-desktop {
+    display: none;
+  }
+
+  .resume-mobile {
+    display: block;
+  }
+
+  .resume-tabs {
+    gap: 10px;
+    margin: 16px auto 8px;
+    padding: 0 12px;
+  }
+
+  .resume-tab {
+    font-size: 0.92rem;
+    padding: 9px 13px;
+  }
+
+  .resume-title {
+    font-size: 2.35rem;
+    margin: 28px 0 8px;
+  }
+
+  .resume-title::before,
+  .resume-title::after {
+    font-size: 1.35rem;
+  }
+
+  .card-hint {
+    padding: 0 18px;
+    font-size: 0.95rem;
+  }
+
+  .resume-container.mobile-card-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 18px 0 32px;
+    margin: 0 auto;
+    overflow: visible;
+    box-sizing: border-box;
+  }
+
+  .resume-container.mobile-card-container .card {
+    width: min(84vw, 330px);
+    height: 430px;
+    flex: 0 0 min(84vw, 330px);
+    margin: 0;
+    scroll-snap-align: none;
+  }
+
+  .resume-container.mobile-card-container .card:hover {
+    transform: none;
+  }
+
+  .resume-container.mobile-card-container .card-front {
+    font-size: 1.05rem;
+    padding: 18px;
+  }
+
+  .resume-container.mobile-card-container .card-front img {
+    width: 105px;
+    height: 105px;
+  }
+
+  .resume-container.mobile-card-container .card-back {
+    padding: 18px;
+    font-size: 0.95rem;
+  }
+
+  .resume-container.mobile-card-container .card-back h3 {
+    font-size: 1.05rem;
+  }
+
+  .resume-container.mobile-card-container .card-back h4 {
+    font-size: 0.95rem;
+  }
+
+  .resume-container.mobile-card-container .card-back ul {
+    padding-left: 18px;
+  }
+
+  .games-page {
+    padding: 20px 24px 50px;
+  }
+
+  .game-card {
+    width: min(100%, 320px);
   }
 }
 
@@ -1036,59 +1175,9 @@ button:focus-visible {
   .app-container * {
     cursor: auto !important;
   }
-}
 
-/* Mobile resume layout */
-.resume-container {
-  width: 100%;
-  padding: 14px 0 28px;
-  gap: 18px;
-  align-items: flex-start;
-}
-
-/* Only Work Experience should horizontally scroll */
-.work-container {
-  width: 100%;
-  max-width: 100%;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 18px 16px 32px;
-  box-sizing: border-box;
-  scroll-snap-type: none;
-}
-
-.work-container::before,
-.work-container::after {
-  display: none;
-}
-
-/* Other sections should stay centered */
-.center-container {
-  width: 100%;
-  max-width: 100%;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  overflow: visible;
-  padding: 18px 16px 32px;
-  box-sizing: border-box;
-}
-
-/* Card sizing */
-.card {
-  width: min(82vw, 330px);
-  height: 430px;
-  flex: 0 0 min(82vw, 330px);
-  margin: 0;
-  scroll-snap-align: none;
-}
-
-.center-container .card {
-  flex: 0 0 min(82vw, 330px);
-}
-
-.card:hover {
-  transform: none;
+  .custom-cursor,
+  .cursor-trail {
+    display: none !important;
+  }
 }

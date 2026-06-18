@@ -7,16 +7,19 @@ import sdsu from '../assets/photos/sdsu.png';
 import vhs from '../assets/photos/vhs.png';
 import upchieve from '../assets/photos/upchieve.png';
 import spotify from '../assets/photos/spotify.png';
+import pedrozzi from '../assets/photos/pedrozzi.png';
+
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import pedrozzi from '../assets/photos/pedrozzi.png';
 
 function Resume() {
   const [flippedIndexes, setFlippedIndexes] = useState({});
+  const [mobileSection, setMobileSection] = useState(0);
 
   const toggleFlip = (sectionIdx, cardIdx) => {
     const key = `${sectionIdx}-${cardIdx}`;
-    setFlippedIndexes(prev => ({
+
+    setFlippedIndexes((prev) => ({
       ...prev,
       [key]: !prev[key]
     }));
@@ -28,11 +31,11 @@ function Resume() {
       cards: [
         {
           company: 'San Diego State University',
-          img: sdsu, // change this image if needed
+          img: sdsu,
           roles: [
             {
-              title: "IT Support Specialist",
-              dates: "Aug 2025 - present",
+              title: 'IT Support Specialist',
+              dates: 'Aug 2025 - present',
               description: (
                 <ul>
                   <li>Provided technical support for hardware, software, and network issues</li>
@@ -44,8 +47,8 @@ function Resume() {
               )
             },
             {
-              title: "Graduate Research Assistant",
-              dates: "Aug 2025 - present",
+              title: 'Graduate Research Assistant',
+              dates: 'Aug 2025 - present',
               description: (
                 <ul>
                   <li>Created a Python script to pull school district data from EMMA (Electronic Municipal Market Access) to analyze 6-digit CUSIPs of relevance for further analysis</li>
@@ -60,8 +63,8 @@ function Resume() {
           img: tutor,
           roles: [
             {
-              title: "MATCH High School Math Tutor Fellow",
-              dates: "July 2024 - July 2025",
+              title: 'MATCH High School Math Tutor Fellow',
+              dates: 'July 2024 - July 2025',
               description: (
                 <ul>
                   <li>Served as a full-time tutor and mentor offering daily small-group instruction to students in geometry and algebra</li>
@@ -79,8 +82,8 @@ function Resume() {
           img: ucsc,
           roles: [
             {
-              title: "International Living Center Intern",
-              dates: "Jan 2022 - June 2024",
+              title: 'International Living Center Intern',
+              dates: 'Jan 2022 - June 2024',
               description: (
                 <ul>
                   <li>Coordinated events and improved quality of life for residents of the International Living Center (ILC)</li>
@@ -94,8 +97,8 @@ function Resume() {
               )
             },
             {
-              title: "CLNI-85 Instructor",
-              dates: "Dec 2022 - Mar 2023",
+              title: 'CLNI-85 Instructor',
+              dates: 'Dec 2022 - Mar 2023',
               description: (
                 <ul>
                   <li>Taught CLNI-85 course on global action, social justice, and international perspectives</li>
@@ -106,8 +109,8 @@ function Resume() {
               )
             },
             {
-              title: "Crown College Peer Navigator",
-              dates: "Sep 2021 - Dec 2021",
+              title: 'Crown College Peer Navigator',
+              dates: 'Sep 2021 - Dec 2021',
               description: (
                 <ul>
                   <li>Assisted professors with core classes</li>
@@ -123,8 +126,8 @@ function Resume() {
           img: spacelab,
           roles: [
             {
-              title: "Frontend Developer",
-              dates: "Jun 2023 - Aug 2023",
+              title: 'Frontend Developer',
+              dates: 'Jun 2023 - Aug 2023',
               description: (
                 <ul>
                   <li>Worked on 3D Exoplanetarium project for astronomer tools</li>
@@ -140,8 +143,8 @@ function Resume() {
           img: llnl,
           roles: [
             {
-              title: "Computing Intern",
-              dates: "Jun 2022 - Sep 2022",
+              title: 'Computing Intern',
+              dates: 'Jun 2022 - Sep 2022',
               description: (
                 <ul>
                   <li>Worked on CasCon+ simulation modeling water systems and failure tests</li>
@@ -151,8 +154,8 @@ function Resume() {
               )
             },
             {
-              title: "Cybersecurity Intern",
-              dates: "Jun 2019 - Aug 2019",
+              title: 'Cybersecurity Intern',
+              dates: 'Jun 2019 - Aug 2019',
               description: (
                 <ul>
                   <li>Created Python script to delete unnecessary alerts for Thinkst Canary API</li>
@@ -172,11 +175,11 @@ function Resume() {
           img: sdsu,
           roles: [
             {
-              title: "Reconceptualizing Innovation in Human-AI Creative Collaboration: Balancing Agency, Machine Contribution, and Authenticity",
-              dates: "Aug 2025 - Dec 2025",
+              title: 'Reconceptualizing Innovation in Human-AI Creative Collaboration: Balancing Agency, Machine Contribution, and Authenticity',
+              dates: 'Aug 2025 - Dec 2025',
               description: (
-
-                <p>This research explores how creative professionals experience authorship, authenticity, and creative flow when working with generative AI tools. Through qualitative interviews, the project shows that AI often sparks early discovery but can also shift creative work toward optimization and production, which creates tensions around agency, ownership, and meaning. The study reframes innovation as a relational, human-AI process and offers design insights for building AI tools that support uncertainty, serendipity, and authentic creative engagement rather than just efficiency.
+                <p>
+                  This research explores how creative professionals experience authorship, authenticity, and creative flow when working with generative AI tools. Through qualitative interviews, the project shows that AI often sparks early discovery but can also shift creative work toward optimization and production, which creates tensions around agency, ownership, and meaning. The study reframes innovation as a relational, human-AI process and offers design insights for building AI tools that support uncertainty, serendipity, and authentic creative engagement rather than just efficiency.
 
                   <br /><br />
 
@@ -189,7 +192,6 @@ function Resume() {
                   >
                     Link to my paper
                   </a>
-
                 </p>
               )
             }
@@ -200,13 +202,12 @@ function Resume() {
           img: spacelab,
           roles: [
             {
-              title: "3D Exoplanetarium Database",
-              dates: "Jun 2023 - Aug 2023",
+              title: '3D Exoplanetarium Database',
+              dates: 'Jun 2023 - Aug 2023',
               description: (
-
                 <p>
                   Exoplanetarium is a project with the goal to explore NASA/CalTech data from the TESS, Kepler and K2 Missions using various degrees of Machine Learning and Deep Natural Networks in the pursuit of Earth-Like planets around nearby stars in the Milky Way Galaxy. My own personal contribution to this project consisting of building the database of the application from scratch to be functional to open and close, as well as displaying data about each individual exoplanet.
-                
+
                   <br /><br />
 
                   <a
@@ -218,7 +219,6 @@ function Resume() {
                   >
                     Link to Exoplanetarium
                   </a>
-
                 </p>
               )
             }
@@ -230,11 +230,11 @@ function Resume() {
           roles: [
             {
               title: "How Spotify's BaRT Algorithm Recommends New Songs to Users",
-              dates: "Mar 2023 - Jun 2023",
+              dates: 'Mar 2023 - Jun 2023',
               description: (
                 <p>
-                  Independent research done on how the global music streaming platform is able to use its algorithm to suggest relevant songs to its users using natural language processing, content-based filtering, and collaborative filtering. I have arranged my findings through a poster (that has been presented) as well as a research paper written using LaTeX.
-                
+                  Independent research done on how the global music streaming platform is able to use its algorithm to suggest relevant songs to its users using natural language processing, content-based filtering, and collaborative filtering. I have arranged my findings through a poster that has been presented, as well as a research paper written using LaTeX.
+
                   <br /><br />
 
                   <a
@@ -246,7 +246,6 @@ function Resume() {
                   >
                     Link to my paper
                   </a>
-                
                 </p>
               )
             }
@@ -263,18 +262,17 @@ function Resume() {
           roles: [
             {
               title: "Master's in Information Systems",
-              dates: "Expected Graduation: May 2027",
+              dates: 'Expected Graduation: May 2027',
               description: (
-                <p>
-                <ul>
-                  <li>Member of SDSU Cyber Clinic (Cyber Center of Excellence) </li>
-                  <br></br>
-                  <li>Master Builder at buildIT (SDSU's Makerspace)</li>
-                  <br></br>
-                  </ul>
-                  <li>Relevant Coursework:</li>
+                <>
                   <ul>
-                    
+                    <li>Member of SDSU Cyber Clinic (Cyber Center of Excellence)</li>
+                    <li>Master Builder at buildIT (SDSU&apos;s Makerspace)</li>
+                  </ul>
+
+                  <p>Relevant Coursework:</p>
+
+                  <ul>
                     <li>Statistical Analysis</li>
                     <li>Operations and Supply Chain Management</li>
                     <li>Scientific Method Seminar</li>
@@ -286,8 +284,7 @@ function Resume() {
                     <li>Business Systems Analysis & Design</li>
                     <li>Programming for Data-Driven Applications</li>
                   </ul>
-                
-                </p>
+                </>
               )
             }
           ]
@@ -298,39 +295,36 @@ function Resume() {
           roles: [
             {
               title: "Bachelor's in Computer Science",
-              dates: "Graduated June 2024",
+              dates: 'Graduated June 2024',
               description: (
+                <>
+                  <ul>
+                    <li>Member of SASE (Society of Asian Scientists & Engineers)</li>
+                  </ul>
 
-                <p>
+                  <p>Relevant Coursework:</p>
+
                   <ul>
-                  <li>Member of SASE (Society of Asian Scientists & Engineers</li>
+                    <li>Applied Discrete Mathematics</li>
+                    <li>Business Information Systems</li>
+                    <li>Business Strategy and Information Systems</li>
+                    <li>Computational Methods and Applications</li>
+                    <li>Computational Models</li>
+                    <li>Computer Architecture</li>
+                    <li>Computer Systems and C Programming</li>
+                    <li>Foundations of Video Game Design</li>
+                    <li>Introduction to Computer Graphics</li>
+                    <li>Introduction to Data Structures and Algorithms</li>
+                    <li>Mathematical Methods for Engineers I</li>
+                    <li>Probability and Statistics for Engineers</li>
+                    <li>Technical Writing for Computer Science and Engineering</li>
+                    <li>Digital Scholarship Innovation Studio 3D Printing Training</li>
                   </ul>
-                  <br></br>
-                  <li>Relevant Coursework:</li>
-                  <ul>
-                      <li>Relevant Coursework:</li>
-                      <li>Applied Discrete Mathematics</li>
-                      <li>Business Information Systems</li>
-                      <li>Business Strategy and Information Systems</li>
-                      <li>Computational Methods and Applications</li>
-                      <li>Computational Models</li>
-                      <li>Computer Architecture</li>
-                      <li>Computer Systems and C Programming</li>
-                      <li>Foundations of Video Game Design</li>
-                      <li>Introduction to Computer Graphics</li>
-                      <li>Introduction to Data Structures and Algorithms</li>
-                      <li>Mathematical Methods for Engineers I</li>
-                      <li>Probability and Statistics for Engineers</li>
-                      <li>Technical Writing for Computer Science and Engineering</li>
-                      <li>Digital Scholarship Innovation Studio 3D Printing Training</li>
-                  </ul>
-                  
-                </p>
+                </>
               )
             }
           ]
         }
-        
       ]
     },
     {
@@ -341,26 +335,26 @@ function Resume() {
           img: sdsu,
           roles: [
             {
-              title: "Cyber Clinic Member (Elder Cyber Awareness Team)",
-              dates: "Jan 2026 - present",
+              title: 'Cyber Clinic Member (Elder Cyber Awareness Team)',
+              dates: 'Jan 2026 - present',
               description: (
                 <ul>
                   <li>Delivered cybersecurity presentations to local elderly communities, focusing on online safety habits</li>
-                  <li>Taught participants how to recognize phishing emails, scam messages, suspicious links, and common fraud tactics (such as gift card and crypto scams)</li>
+                  <li>Taught participants how to recognize phishing emails, scam messages, suspicious links, and common fraud tactics, such as gift card and crypto scams</li>
                   <li>Explained cybersecurity concepts in accessible, non-technical language to help build confidence with technology use</li>
                   <li>Answered questions and provided guidance on password safety, account protection, and how to avoid scam tactics</li>
                 </ul>
               )
             },
             {
-              title: "Master Builder at buildIT",
-              dates: "Aug 2025 - present",
+              title: 'Master Builder at buildIT',
+              dates: 'Aug 2025 - present',
               description: (
                 <ul>
-          <li>Supported students and community members in using makerspace tools, equipment, and creative technologies</li>
-          <li>Helped promote safe and responsible use of makerspace equipment</li>
-          <li>Helped create an inclusive, collaborative learning environment for users with varying levels of technical experience</li>
-        </ul>
+                  <li>Supported students and community members in using makerspace tools, equipment, and creative technologies</li>
+                  <li>Helped promote safe and responsible use of makerspace equipment</li>
+                  <li>Helped create an inclusive, collaborative learning environment for users with varying levels of technical experience</li>
+                </ul>
               )
             }
           ]
@@ -370,8 +364,8 @@ function Resume() {
           img: upchieve,
           roles: [
             {
-              title: "Online Tutor",
-              dates: "Jan 2025 - Jun 2025",
+              title: 'Online Tutor',
+              dates: 'Jan 2025 - Jun 2025',
               description: (
                 <ul>
                   <li>Tutored middle and high school students in a range of math subjects, including algebra and geometry</li>
@@ -388,11 +382,11 @@ function Resume() {
           img: vhs,
           roles: [
             {
-              title: "Cat Care Volunteer",
-              dates: "Oct 2018 - Oct 2020",
+              title: 'Cat Care Volunteer',
+              dates: 'Oct 2018 - Oct 2020',
               description: (
                 <ul>
-                  <li>Provided care (provide food, clean up) for shelter cats awaiting adoption.</li>
+                  <li>Provided care, food, and cleanup for shelter cats awaiting adoption.</li>
                 </ul>
               )
             }
@@ -408,20 +402,20 @@ function Resume() {
           img: ucsc,
           roles: [
             {
-              title: "Jay Johnson Emerging Leader Award",
-              dates: "May 2022",
+              title: 'Jay Johnson Emerging Leader Award',
+              dates: 'May 2022',
               description: (
                 <p>
-                  This award is given to students who: Reflects the values, character, spirit, and servitude of Jay, is an up-and-coming leader in our community, demonstrates a growing capacity for commitment to service, and embodies the spirit of selflessness, passion, caring, and humbleness.
+                  This award is given to students who reflect the values, character, spirit, and servitude of Jay; are up-and-coming leaders in the community; demonstrate a growing capacity for commitment to service; and embody the spirit of selflessness, passion, caring, and humbleness.
                 </p>
               )
             },
             {
-              title: "College Nine Leadership Certificate",
-              dates: "May 2023 and May 2024",
+              title: 'College Nine Leadership Certificate',
+              dates: 'May 2023 and May 2024',
               description: (
                 <p>
-                  The College Service Award goes to students who have contributed significantly to our colleges and campus during their time at College Nine.
+                  The College Service Award goes to students who have contributed significantly to their colleges and campus during their time at College Nine.
                 </p>
               )
             }
@@ -432,8 +426,8 @@ function Resume() {
           img: pedrozzi,
           roles: [
             {
-              title: "Kim Cupps Memorial Undergraduate Scholarship",
-              dates: "May 2020",
+              title: 'Kim Cupps Memorial Undergraduate Scholarship',
+              dates: 'May 2020',
               description: (
                 <p>
                   This scholarship honors students who embody the legacy of Kim Cupps through demonstrated leadership, academic excellence, and community service.
@@ -452,72 +446,115 @@ function Resume() {
     mobile: { breakpoint: { max: 768, min: 0 }, items: 1 }
   };
 
-  return (
-    <div>
-      <Carousel
-        responsive={responsive}
-        swipeable
-        draggable
-        showDots
-        infinite={false}
-        keyBoardControl
-        containerClass="carousel-container"
-        dotListClass="custom-dot-list"
-        itemClass="carousel-item-padding-40-px"
-      >
-        {sections.map((section, sectionIdx) => (
-          <div key={sectionIdx} style={{ padding: '20px' }}>
-            <h2 className="resume-title">{section.label}</h2>
-            <p className="card-hint">Click any card to flip it over.</p>
-            <div
-  className={`resume-container ${
-    section.label === 'Work Experience' ? 'work-container' : 'center-container'
-  }`}
->
-              {section.cards.map((card, cardIdx) => {
-                const flippedKey = `${sectionIdx}-${cardIdx}`;
-                return (
-                  <div
-                    key={cardIdx}
-                    className={`card ${flippedIndexes[flippedKey] ? 'flipped' : ''}`}
-                    onClick={() => toggleFlip(sectionIdx, cardIdx)}
-                    role="button"
-                    tabIndex={0}
-                    aria-pressed={flippedIndexes[flippedKey] ? 'true' : 'false'}
-                  >
-                    <div className="card-inner">
-                      <div className="card-front">
-                        <img src={card.img} alt={card.company} />
-                        <div className="company-name">{card.company}</div>
-                      </div>
-                      <div className="card-back">
-                        {card.roles.map((role, i) => (
-                          <div key={i} className="role-entry">
-                            <h3>{role.title}</h3>
-                            {role.dates && <h4><em>{role.dates}</em></h4>}
-                            {role.description}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+  const renderCards = (section, sectionIdx, containerClassName) => (
+    <div className={`resume-container ${containerClassName}`}>
+      {section.cards.map((card, cardIdx) => {
+        const flippedKey = `${sectionIdx}-${cardIdx}`;
+
+        return (
+          <div
+            key={cardIdx}
+            className={`card ${flippedIndexes[flippedKey] ? 'flipped' : ''}`}
+            onClick={() => toggleFlip(sectionIdx, cardIdx)}
+            role="button"
+            tabIndex={0}
+            aria-pressed={flippedIndexes[flippedKey] ? 'true' : 'false'}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleFlip(sectionIdx, cardIdx);
+              }
+            }}
+          >
+            <div className="card-inner">
+              <div className="card-front">
+                <img src={card.img} alt={card.company} />
+                <div className="company-name">{card.company}</div>
+              </div>
+
+              <div className="card-back">
+                {card.roles.map((role, i) => (
+                  <div key={i} className="role-entry">
+                    <h3>{role.title}</h3>
+                    {role.dates && (
+                      <h4>
+                        <em>{role.dates}</em>
+                      </h4>
+                    )}
+                    {role.description}
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
           </div>
-        ))}
-      </Carousel>
-      <div className="resume-download-container">
-  <a
-    href="pdfResume.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="resume-download"
-  >
-    Download Resume
-  </a>
-</div>
+        );
+      })}
+    </div>
+  );
 
+  const activeMobileSection = sections[mobileSection];
+
+  return (
+    <div className="resume-page">
+      <div className="resume-desktop">
+        <Carousel
+          responsive={responsive}
+          swipeable
+          draggable
+          showDots
+          infinite={false}
+          keyBoardControl
+          containerClass="carousel-container"
+          dotListClass="custom-dot-list"
+          itemClass="carousel-item-padding-40-px"
+        >
+          {sections.map((section, sectionIdx) => (
+            <div key={sectionIdx} style={{ padding: '20px' }}>
+              <h2 className="resume-title">{section.label}</h2>
+              <p className="card-hint">Click any card to flip it over.</p>
+
+              {renderCards(
+                section,
+                sectionIdx,
+                section.label === 'Work Experience' ? 'work-container' : 'center-container'
+              )}
+            </div>
+          ))}
+        </Carousel>
+      </div>
+
+      <div className="resume-mobile">
+        <div className="resume-tabs">
+          {sections.map((section, sectionIdx) => (
+            <button
+              key={sectionIdx}
+              type="button"
+              className={`resume-tab ${mobileSection === sectionIdx ? 'active' : ''}`}
+              onClick={() => setMobileSection(sectionIdx)}
+            >
+              {section.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="resume-section">
+          <h2 className="resume-title">{activeMobileSection.label}</h2>
+          <p className="card-hint">Click any card to flip it over.</p>
+
+          {renderCards(activeMobileSection, mobileSection, 'mobile-card-container')}
+        </div>
+      </div>
+
+      <div className="resume-download-container">
+        <a
+          href="pdfResume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="resume-download"
+        >
+          Download Resume
+        </a>
+      </div>
     </div>
   );
 }
