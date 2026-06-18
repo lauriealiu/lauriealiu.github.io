@@ -1,3 +1,4 @@
+
 /* ========== GLOBAL STYLES ========== */
 
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
@@ -39,10 +40,8 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-
   background-image:
     url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='16' y='30' font-size='18' fill='white' fill-opacity='0.75'%3E%E2%9C%A6%3C/text%3E%3Ctext x='78' y='70' font-size='13' fill='white' fill-opacity='0.55'%3E%E2%9C%A6%3C/text%3E%3Ctext x='42' y='102' font-size='10' fill='white' fill-opacity='0.45'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E");
-
   background-size: 120px 120px;
 
   mask-image: linear-gradient(
@@ -65,7 +64,6 @@ body::before {
 
   mask-size: 220% 220%;
   -webkit-mask-size: 220% 220%;
-
   animation: starWave 7s linear infinite;
 }
 
@@ -143,7 +141,7 @@ h2.bigText {
 .resume-title {
   font-size: 3rem;
   text-align: center;
-  margin: 40px 0 10px;
+  margin: 22px 0 10px;
 }
 
 .resume-title::before {
@@ -175,6 +173,7 @@ header .container {
 h1.title {
   font-size: 3rem;
 }
+
 .title-decor {
   white-space: nowrap;
 }
@@ -604,6 +603,10 @@ button.nav-link:hover {
 
 /* ========== RESUME ========== */
 
+.resume-page {
+  padding-top: 26px;
+}
+
 .resume-desktop {
   display: block;
 }
@@ -612,38 +615,12 @@ button.nav-link:hover {
   display: none;
 }
 
-.resume-download-container {
-  display: flex;
-  justify-content: center;
-  margin: 28px 0 10px;
-}
-
-.resume-download {
-  display: inline-block;
-  padding: 12px 22px;
-  background: #ffd84d;
-  color: #111;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.15rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.resume-download:hover {
-  transform: translateY(-3px) scale(1.04);
-  box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.18),
-    0 0 18px rgba(255, 216, 77, 0.45);
-}
-
-.resume-tabs {
+.resume-page .resume-tabs {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  margin: 18px auto 10px;
+  margin: 42px auto 2px;
   padding: 0 14px;
 }
 
@@ -675,46 +652,97 @@ button.nav-link:hover {
   animation: pageFade 0.3s ease;
 }
 
-/* ========== RESUME CARDS ========== */
-
-.resume-container {
+.resume-download-container {
   display: flex;
-  gap: 20px;
-  padding: 20px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.work-container {
-  width: min(1400px, calc(100vw - 80px));
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 24px 20px 34px;
-  scroll-snap-type: none;
-}
-
-.center-container {
-  max-width: 1400px;
-  flex-wrap: wrap;
   justify-content: center;
+  margin: 28px 0 10px;
+}
+
+.resume-download {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #ffd84d;
+  color: #111;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.15rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resume-download:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.18),
+    0 0 18px rgba(255, 216, 77, 0.45);
+}
+
+/* Desktop-only larger resume buttons */
+@media (min-width: 901px) {
+  .resume-desktop .resume-tabs {
+    gap: 18px;
+    margin: 42px auto 2px;
+  }
+
+  .resume-desktop .resume-tab {
+    font-size: 1.25rem;
+    padding: 16px 28px;
+    border-radius: 999px;
+  }
+}
+
+/* ========== RESUME CARD CAROUSELS ========== */
+
+.resume-card-carousel-wrapper {
+  width: min(1200px, calc(100vw - 100px));
+  margin: 0 auto;
+  padding: 10px 0 36px;
+  box-sizing: border-box;
+}
+
+.education-card-row {
+  width: min(900px, calc(100vw - 100px));
+  margin: 0 auto;
+  padding: 24px 0 52px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .education-card-row {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 0 34px;
+  }
+}
+
+/* Legacy classes can remain because Resume.js passes them into the wrapper */
+.work-container,
+.center-container {
   overflow: visible;
 }
 
-.work-container::-webkit-scrollbar {
-  height: 8px;
+.card-carousel-container {
+  overflow: visible;
+  padding: 10px 0 42px;
 }
 
-.work-container::-webkit-scrollbar-thumb {
-  background: #b99ce8;
-  border-radius: 10px;
+.card-carousel-item {
+  display: flex;
+  justify-content: center;
 }
 
-.work-container::-webkit-scrollbar-track {
-  background: #eadbff;
-  border-radius: 10px;
+.card-slide {
+  display: flex;
+  justify-content: center;
+  padding: 14px 10px;
+  box-sizing: border-box;
 }
 
 .card {
@@ -722,7 +750,7 @@ button.nav-link:hover {
   height: 400px;
   flex: 0 0 300px;
   position: relative;
-  margin: 10px;
+  margin: 0;
   perspective: 1000px;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
@@ -808,6 +836,10 @@ button.nav-link:hover {
   padding: 20px;
   word-wrap: break-word;
   white-space: normal;
+}
+
+.card-dot-list {
+  bottom: 0;
 }
 
 .project-link {
@@ -962,6 +994,33 @@ body,
   }
 }
 
+/* ========== MEDIUM SCREEN HEADER FIX ========== */
+
+@media (max-width: 1250px) {
+  header .container {
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 24px;
+  }
+
+  nav ul {
+    gap: 44px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+
+  nav a,
+  .nav-link,
+  button.nav-link {
+    font-size: 34px;
+  }
+
+  h1.title {
+    margin: 8px 0 0;
+    text-align: center;
+  }
+}
+
 /* ========== RESPONSIVE STYLES ========== */
 
 @media (max-width: 900px) {
@@ -979,15 +1038,16 @@ body,
     text-align: center;
     line-height: 1.1;
   }
-  
+
   .title-decor {
     display: block;
     font-size: 0.75em;
     margin-top: 4px;
+    white-space: nowrap;
   }
 
   nav ul {
-    gap: 35px;
+    gap: 22px;
     flex-wrap: wrap;
     margin-top: 5px;
   }
@@ -995,7 +1055,7 @@ body,
   nav a,
   .nav-link,
   button.nav-link {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .custom-cursor,
@@ -1075,9 +1135,13 @@ body,
     display: block;
   }
 
-  .resume-tabs {
+  .resume-page {
+    padding-top: 8px;
+  }
+
+  .resume-page .resume-tabs {
     gap: 10px;
-    margin: 16px auto 8px;
+    margin: 28px auto 8px;
     padding: 0 12px;
   }
 
@@ -1088,7 +1152,7 @@ body,
 
   .resume-title {
     font-size: 2.35rem;
-    margin: 28px 0 8px;
+    margin: 18px 0 8px;
   }
 
   .resume-title::before,
@@ -1101,55 +1165,53 @@ body,
     font-size: 0.95rem;
   }
 
-  .resume-container.mobile-card-container {
+  .resume-card-carousel-wrapper {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 18px;
-    padding: 18px 0 32px;
-    margin: 0 auto;
-    overflow: visible;
-    box-sizing: border-box;
+    padding: 8px 0 34px;
   }
 
-  .resume-container.mobile-card-container .card {
+  .card-carousel-container {
+    padding: 4px 0 40px;
+  }
+
+  .card-slide {
+    padding: 12px 0;
+  }
+
+  .card {
     width: min(84vw, 330px);
     height: 430px;
     flex: 0 0 min(84vw, 330px);
-    margin: 0;
-    scroll-snap-align: none;
   }
 
-  .resume-container.mobile-card-container .card:hover {
+  .card:hover {
     transform: none;
   }
 
-  .resume-container.mobile-card-container .card-front {
+  .card-front {
     font-size: 1.05rem;
     padding: 18px;
   }
 
-  .resume-container.mobile-card-container .card-front img {
+  .card-front img {
     width: 105px;
     height: 105px;
   }
 
-  .resume-container.mobile-card-container .card-back {
+  .card-back {
     padding: 18px;
     font-size: 0.95rem;
   }
 
-  .resume-container.mobile-card-container .card-back h3 {
+  .card-back h3 {
     font-size: 1.05rem;
   }
 
-  .resume-container.mobile-card-container .card-back h4 {
+  .card-back h4 {
     font-size: 0.95rem;
   }
 
-  .resume-container.mobile-card-container .card-back ul {
+  .card-back ul {
     padding-left: 18px;
   }
 

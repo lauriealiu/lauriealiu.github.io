@@ -7,7 +7,7 @@ function Header() {
       <div className="container">
       <h1 className="title">
   <span>Laurie Liu</span>
-  <span className="title-decor">⭒˚｡⋆ 𓆑 ⋆｡𖦹</span>
+  <span className="title-decor"> ⭒˚｡⋆ 𓆑 ⋆｡𖦹</span>
 </h1>
 
         <nav>

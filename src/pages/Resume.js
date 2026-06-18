@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import tutor from '../assets/photos/tutor.png';
 import ucsc from '../assets/photos/ucsc.png';
 import spacelab from '../assets/photos/spacelab.png';
@@ -8,6 +8,10 @@ import vhs from '../assets/photos/vhs.png';
 import upchieve from '../assets/photos/upchieve.png';
 import spotify from '../assets/photos/spotify.png';
 import pedrozzi from '../assets/photos/pedrozzi.png';
+import ccoe from '../assets/photos/ccoe.png';
+import buildIT from '../assets/photos/buildIT.png';
+import reconAI from '../assets/photos/reconai.png';
+
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -16,7 +20,6 @@ function Resume() {
   const [flippedIndexes, setFlippedIndexes] = useState({});
   const [mobileSection, setMobileSection] = useState(0);
   const [desktopSection, setDesktopSection] = useState(0);
-  const carouselRef = useRef(null);
 
   const toggleFlip = (sectionIdx, cardIdx) => {
     const key = `${sectionIdx}-${cardIdx}`;
@@ -54,7 +57,7 @@ function Resume() {
               description: (
                 <ul>
                   <li>Created a Python script to pull school district data from EMMA (Electronic Municipal Market Access) to analyze 6-digit CUSIPs of relevance for further analysis</li>
-                  <li>Assisted in proctoring exams of 80 students</li>
+                  <li>Assisted in proctoring exams of 60 students</li>
                 </ul>
               )
             }
@@ -173,11 +176,11 @@ function Resume() {
       label: 'Projects',
       cards: [
         {
-          company: 'San Diego State University',
-          img: sdsu,
+          company: 'Reconceptualizing Innovation in Human-AI Creative Collaboration: Balancing Agency, Machine Contribution, and Authenticity',
+          img: reconAI,
           roles: [
             {
-              title: 'Reconceptualizing Innovation in Human-AI Creative Collaboration: Balancing Agency, Machine Contribution, and Authenticity',
+              title: 'Reconceptualizing Innovation in Human-AI Creative Collaboration: Balancing Agency, Machine Contribution, and Authenticity @ SDSU',
               dates: 'Aug 2025 - Dec 2025',
               description: (
                 <p>
@@ -204,7 +207,7 @@ function Resume() {
           img: spacelab,
           roles: [
             {
-              title: '3D Exoplanetarium Database',
+              title: '3D Exoplanetarium Database @ Spacelab',
               dates: 'Jun 2023 - Aug 2023',
               description: (
                 <p>
@@ -231,7 +234,7 @@ function Resume() {
           img: spotify,
           roles: [
             {
-              title: "How Spotify's BaRT Algorithm Recommends New Songs to Users",
+              title: "How Spotify's BaRT Algorithm Recommends New Songs to Users @ UCSC Baskin Engineering",
               dates: 'Mar 2023 - Jun 2023',
               description: (
                 <p>
@@ -333,8 +336,8 @@ function Resume() {
       label: 'Volunteer Experience',
       cards: [
         {
-          company: 'San Diego State University',
-          img: sdsu,
+          company: 'San Diego Cyber Clinic at SDSU',
+          img: ccoe,
           roles: [
             {
               title: 'Cyber Clinic Member (Elder Cyber Awareness Team)',
@@ -347,9 +350,15 @@ function Resume() {
                   <li>Answered questions and provided guidance on password safety, account protection, and how to avoid scam tactics</li>
                 </ul>
               )
-            },
+            }
+          ]
+        },
+        {
+          company: 'buildIT at SDSU',
+          img: buildIT,
+          roles: [
             {
-              title: 'Master Builder at buildIT',
+              title: 'Master Builder',
               dates: 'Aug 2025 - present',
               description: (
                 <ul>
@@ -442,57 +451,135 @@ function Resume() {
     }
   ];
 
-  const responsive = {
-    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
-    tablet: { breakpoint: { max: 1024, min: 768 }, items: 1 },
-    mobile: { breakpoint: { max: 768, min: 0 }, items: 1 }
+
+
+  const cardResponsive = {
+    largeDesktop: {
+      breakpoint: { max: 3000, min: 1300 },
+      items: 3
+    },
+    desktop: {
+      breakpoint: { max: 1300, min: 900 },
+      items: 2
+    },
+    tablet: {
+      breakpoint: { max: 900, min: 0 },
+      items: 1
+    }
   };
 
-  const renderCards = (section, sectionIdx, containerClassName) => (
-    <div className={`resume-container ${containerClassName}`}>
-      {section.cards.map((card, cardIdx) => {
-        const flippedKey = `${sectionIdx}-${cardIdx}`;
-
-        return (
-          <div
-            key={cardIdx}
-            className={`card ${flippedIndexes[flippedKey] ? 'flipped' : ''}`}
-            onClick={() => toggleFlip(sectionIdx, cardIdx)}
-            role="button"
-            tabIndex={0}
-            aria-pressed={flippedIndexes[flippedKey] ? 'true' : 'false'}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleFlip(sectionIdx, cardIdx);
-              }
-            }}
-          >
-            <div className="card-inner">
-              <div className="card-front">
-                <img src={card.img} alt={card.company} />
-                <div className="company-name">{card.company}</div>
-              </div>
-
-              <div className="card-back">
-                {card.roles.map((role, i) => (
-                  <div key={i} className="role-entry">
-                    <h3>{role.title}</h3>
-                    {role.dates && (
-                      <h4>
-                        <em>{role.dates}</em>
-                      </h4>
-                    )}
-                    {role.description}
+  const renderCards = (section, sectionIdx, containerClassName) => {
+    const isEducation = section.label === 'Education';
+  
+    if (isEducation) {
+      return (
+        <div className="education-card-row">
+          {section.cards.map((card, cardIdx) => {
+            const flippedKey = `${sectionIdx}-${cardIdx}`;
+  
+            return (
+              <div className="card-slide" key={cardIdx}>
+                <div
+                  className={`card ${flippedIndexes[flippedKey] ? 'flipped' : ''}`}
+                  onClick={() => toggleFlip(sectionIdx, cardIdx)}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={flippedIndexes[flippedKey] ? 'true' : 'false'}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      toggleFlip(sectionIdx, cardIdx);
+                    }
+                  }}
+                >
+                  <div className="card-inner">
+                    <div className="card-front">
+                      <img src={card.img} alt={card.company} />
+                      <div className="company-name">{card.company}</div>
+                    </div>
+  
+                    <div className="card-back">
+                      {card.roles.map((role, i) => (
+                        <div key={i} className="role-entry">
+                          <h3>{role.title}</h3>
+                          {role.dates && (
+                            <h4>
+                              <em>{role.dates}</em>
+                            </h4>
+                          )}
+                          {role.description}
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
+            );
+          })}
+        </div>
+      );
+    }
+  
+    return (
+      <div className={`resume-card-carousel-wrapper ${containerClassName}`}>
+        <Carousel
+          responsive={cardResponsive}
+          swipeable
+          draggable
+          showDots={section.cards.length > 1}
+          infinite={false}
+          keyBoardControl
+          arrows={section.cards.length > 1}
+          containerClass="card-carousel-container"
+          dotListClass="custom-dot-list card-dot-list"
+          itemClass="card-carousel-item"
+        >
+          {section.cards.map((card, cardIdx) => {
+            const flippedKey = `${sectionIdx}-${cardIdx}`;
+  
+            return (
+              <div className="card-slide" key={cardIdx}>
+                <div
+                  className={`card ${flippedIndexes[flippedKey] ? 'flipped' : ''}`}
+                  onClick={() => toggleFlip(sectionIdx, cardIdx)}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={flippedIndexes[flippedKey] ? 'true' : 'false'}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      toggleFlip(sectionIdx, cardIdx);
+                    }
+                  }}
+                >
+                  <div className="card-inner">
+                    <div className="card-front">
+                      <img src={card.img} alt={card.company} />
+                      <div className="company-name">{card.company}</div>
+                    </div>
+  
+                    <div className="card-back">
+                      {card.roles.map((role, i) => (
+                        <div key={i} className="role-entry">
+                          <h3>{role.title}</h3>
+                          {role.dates && (
+                            <h4>
+                              <em>{role.dates}</em>
+                            </h4>
+                          )}
+                          {role.description}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </Carousel>
+      </div>
+    );
+  };
 
   const activeMobileSection = sections[mobileSection];
 
@@ -505,45 +592,24 @@ function Resume() {
         key={sectionIdx}
         type="button"
         className={`resume-tab ${desktopSection === sectionIdx ? 'active' : ''}`}
-        onClick={() => {
-          setDesktopSection(sectionIdx);
-          carouselRef.current?.goToSlide(sectionIdx);
-        }}
+        onClick={() => setDesktopSection(sectionIdx)}
       >
         {section.label}
       </button>
     ))}
   </div>
 
-  <Carousel
-  ref={carouselRef}
-  responsive={responsive}
-  swipeable
-  draggable
-  showDots
-  infinite={false}
-  keyBoardControl
-  afterChange={(previousSlide, { currentSlide }) => {
-    setDesktopSection(currentSlide);
-  }}
-  containerClass="carousel-container"
-  dotListClass="custom-dot-list"
-  itemClass="carousel-item-padding-40-px"
->
-          {sections.map((section, sectionIdx) => (
-            <div key={sectionIdx} style={{ padding: '20px' }}>
-              <h2 className="resume-title">{section.label}</h2>
-              <p className="card-hint">Click any card to flip it over.</p>
+  <div className="resume-section">
+    <h2 className="resume-title">{sections[desktopSection].label}</h2>
+    <p className="card-hint">Click any card to flip it over.</p>
 
-              {renderCards(
-                section,
-                sectionIdx,
-                section.label === 'Work Experience' ? 'work-container' : 'center-container'
-              )}
-            </div>
-          ))}
-        </Carousel>
-      </div>
+    {renderCards(
+      sections[desktopSection],
+      desktopSection,
+      'desktop-card-container'
+    )}
+  </div>
+</div>
 
       <div className="resume-mobile">
         <div className="resume-tabs">
