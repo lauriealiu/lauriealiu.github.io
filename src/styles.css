@@ -605,6 +605,7 @@ button.nav-link:hover {
 
 .resume-page {
   padding-top: 26px;
+  padding-bottom: 45px;
 }
 
 .resume-desktop {
@@ -649,13 +650,13 @@ button.nav-link:hover {
 }
 
 .resume-section {
-  animation: pageFade 0.3s ease;
+  min-height: 560px;
 }
 
 .resume-download-container {
   display: flex;
   justify-content: center;
-  margin: 28px 0 10px;
+  margin: -8px 0 10px;
 }
 
 .resume-download {
@@ -692,56 +693,126 @@ button.nav-link:hover {
   }
 }
 
-/* ========== RESUME CARD CAROUSELS ========== */
+/* ========== RESUME CARD SCROLLER ========== */
 
-.resume-card-carousel-wrapper {
-  width: min(1200px, calc(100vw - 100px));
+.resume-card-scroll-wrapper {
+  position: relative;
+  width: min(1320px, calc(100vw - 70px));
   margin: 0 auto;
-  padding: 10px 0 36px;
+  padding: 10px 70px 36px;
   box-sizing: border-box;
 }
 
-.education-card-row {
-  width: min(900px, calc(100vw - 100px));
+.resume-card-scroll {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 18px 18px 34px;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 18px;
+  box-sizing: border-box;
+}
+
+.card-scroll-button {
+  position: absolute;
+  top: 48%;
+  transform: translateY(-50%);
+  z-index: 20;
+
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+
+  background: white;
+  color: #5f3fa3;
+  font-size: 2.8rem;
+  line-height: 0.8;
+  font-weight: bold;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.16),
+    0 0 16px rgba(255, 216, 77, 0.35);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.card-scroll-button-left {
+  left: 8px;
+}
+
+.card-scroll-button-right {
+  right: 8px;
+}
+
+.card-scroll-button:hover {
+  background: #ffd84d;
+  color: #111;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.card-scroll-button:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+
+.resume-card-scroll::before,
+.resume-card-scroll::after {
+  content: "";
+  flex: 0 0 1px;
+}
+
+.resume-card-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.resume-card-scroll::-webkit-scrollbar-thumb {
+  background: #b99ce8;
+  border-radius: 10px;
+}
+
+.resume-card-scroll::-webkit-scrollbar-track {
+  background: #eadbff;
+  border-radius: 10px;
+}
+
+
+
+.static-card-row {
+  width: min(1200px, calc(100vw - 100px));
   margin: 0 auto;
   padding: 24px 0 52px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 28px;
+  flex-wrap: wrap;
   box-sizing: border-box;
 }
 
-@media (max-width: 900px) {
-  .education-card-row {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    padding: 16px 0 34px;
-  }
+.education-card-row {
+  width: min(900px, calc(100vw - 100px));
 }
 
-/* Legacy classes can remain because Resume.js passes them into the wrapper */
-.work-container,
-.center-container {
-  overflow: visible;
+.projects-card-row {
+  width: min(1100px, calc(100vw - 100px));
 }
 
-.card-carousel-container {
-  overflow: visible;
-  padding: 10px 0 42px;
-}
-
-.card-carousel-item {
-  display: flex;
-  justify-content: center;
+.awards-card-row {
+  width: min(900px, calc(100vw - 100px));
 }
 
 .card-slide {
   display: flex;
   justify-content: center;
-  padding: 14px 10px;
+  flex: 0 0 300px;
+  scroll-snap-align: center;
+  padding: 14px 0;
   box-sizing: border-box;
 }
 
@@ -836,10 +907,6 @@ button.nav-link:hover {
   padding: 20px;
   word-wrap: break-word;
   white-space: normal;
-}
-
-.card-dot-list {
-  bottom: 0;
 }
 
 .project-link {
@@ -1030,6 +1097,20 @@ body,
     margin: 20px 24px;
   }
 
+  .card-scroll-button {
+    width: 42px;
+    height: 42px;
+    font-size: 2.3rem;
+  }
+  
+  .card-scroll-button-left {
+    left: 8px;
+  }
+  
+  .card-scroll-button-right {
+    right: 8px;
+  }
+
   h1.title {
     display: flex;
     flex-direction: column;
@@ -1136,7 +1217,12 @@ body,
   }
 
   .resume-page {
-    padding-top: 8px;
+    padding-top: 26px;
+    padding-bottom: 45px;
+  }
+
+  .resume-section {
+    min-height: 650px;
   }
 
   .resume-page .resume-tabs {
@@ -1165,16 +1251,27 @@ body,
     font-size: 0.95rem;
   }
 
-  .resume-card-carousel-wrapper {
+  .resume-card-scroll-wrapper {
     width: 100%;
     padding: 8px 0 34px;
   }
 
-  .card-carousel-container {
-    padding: 4px 0 40px;
+  .resume-card-scroll {
+    gap: 18px;
+    padding: 12px 18px 30px;
+    scroll-padding-inline: 18px;
+  }
+
+  .education-card-row {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 0 34px;
   }
 
   .card-slide {
+    flex: 0 0 min(84vw, 330px);
     padding: 12px 0;
   }
 
@@ -1256,4 +1353,3 @@ button:focus-visible {
     display: none !important;
   }
 }
-
