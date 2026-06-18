@@ -258,6 +258,35 @@ function Resume() {
       label: 'Education',
       cards: [
         {
+          company: 'San Diego State University',
+          img: sdsu,
+          roles: [
+            {
+              title: "M.S. Information Systems",
+              dates: "Expected Graduation: May 2027",
+              description: (
+                <ul>
+                  <li>Member of SDSU Cyber Clinic (Cyber Center of Excellence) </li>
+                  <li>Master Builder at buildIT (SDSU's Makerspace)</li>
+                  <ul>
+                      <li>Relevant Coursework:</li>
+                      <li>Statistical Analysis</li>
+                      <li>Operations and Supply Chain Management</li>
+                      <li>Scientific Method Seminar</li>
+                      <li>Enterprise Data Management</li>
+                      <li>Cloud Computing</li>
+                      <li>Business Analytics</li>
+                      <li>Fundamentals of Cybersecurity Management</li>
+                      <li>AI For Cybersecurity</li>
+                      <li>Business Systems Analysis & Design</li>
+                      <li>Programming for Data-Driven Applications</li>
+                  </ul>
+                </ul>
+              )
+            }
+          ]
+        },
+        {
           company: 'University of California, Santa Cruz',
           img: ucsc,
           roles: [
@@ -285,30 +314,14 @@ function Resume() {
                       <li>Probability and Statistics for Engineers</li>
                       <li>Technical Writing for Computer Science and Engineering</li>
                       <li>Digital Scholarship Innovation Studio 3D Printing Training</li>
-
-
                   </ul>
                   
                 </p>
               )
             }
           ]
-        },
-        {
-          company: 'San Diego State University',
-          img: sdsu,
-          roles: [
-            {
-              title: "M.S. Information Systems",
-              dates: "Second year student",
-              description: (
-                <ul>
-
-                </ul>
-              )
-            }
-          ]
         }
+        
       ]
     },
     {
@@ -319,7 +332,7 @@ function Resume() {
           img: sdsu,
           roles: [
             {
-              title: "Cyber Clinic Member",
+              title: "Cyber Clinic Member (Elder Cyber Awareness Team)",
               dates: "Jan 2026 - present",
               description: (
                 <ul>

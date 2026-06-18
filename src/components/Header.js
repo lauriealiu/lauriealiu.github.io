@@ -10,17 +10,17 @@ function Header() {
         <nav>
           <ul>
             <li>
-                <Link to="/">Home</Link>
+            <Link to="/" className="nav-link">Home</Link>
             </li>
             <li>
-                <Link to="/about">About</Link>
+            <Link to="/about" className="nav-link">About</Link>
             </li>
             <li>
-                <a 
-                href="/resume"
-                >Resume
-                </a>
+            <Link to="/resume" className="nav-link">Resume</Link>
             </li>
+            <li>
+            <Link to="/games" className="nav-link">Challenge Me</Link>
+</li>
             <li className = "dropdown">
                 <button className="nav-link dropdown-toggle">Contact</button>
                 <div className="dropdownContent">

@@ -2,20 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
 
-body {
-  font-family: 'Atkinson Hyperlegible', Arial, Helvetica, sans-serif;
-}
-
-h1.title,
-h2.bigText,
-nav a,
-.nav-link,
-button.nav-link,
-.resume-title,
-.site-footer {
-  font-family: 'titleFont', sans-serif;
-}
-
 @font-face {
   font-family: 'titleFont';
   src: url('./assets/fonts/Chloe-Regular.otf') format('opentype');
@@ -25,19 +11,9 @@ button.nav-link,
 
 html,
 body,
-.app-container {
-  cursor: none;
-}
-
-html,
-body,
 #root {
   min-height: 100%;
   margin: 0;
-}
-
-.app-container {
-  min-height: 100vh;
 }
 
 html,
@@ -50,43 +26,95 @@ body {
     radial-gradient(circle at 50% 100%, rgba(170, 120, 255, 0.65), transparent 35%),
     radial-gradient(circle at 70% 20%, rgba(255, 210, 245, 0.45), transparent 25%),
     #DFC5FE;
-
 }
 
+/* Animated background stars */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='16' y='30' font-size='18' fill='white' fill-opacity='0.75'%3E%E2%9C%A6%3C/text%3E%3Ctext x='78' y='70' font-size='13' fill='white' fill-opacity='0.55'%3E%E2%9C%A6%3C/text%3E%3Ctext x='42' y='102' font-size='10' fill='white' fill-opacity='0.45'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E");
 
-.app-container,
-.app-main {
-  background: transparent;
+  background-size: 120px 120px;
+
+  mask-image: linear-gradient(
+    115deg,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.9) 25%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0.9) 75%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    115deg,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.9) 25%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0.9) 75%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+
+  mask-size: 220% 220%;
+  -webkit-mask-size: 220% 220%;
+
+  animation: starWave 7s linear infinite;
 }
 
+@keyframes starWave {
+  0% {
+    mask-position: 120% 0%;
+    -webkit-mask-position: 120% 0%;
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 0.65;
+  }
+
+  100% {
+    mask-position: -120% 100%;
+    -webkit-mask-position: -120% 100%;
+    opacity: 0.25;
+  }
+}
 
 img {
   border-radius: 8px;
 }
 
 /* ========== APP LAYOUT ========== */
+
 .app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
+  background: transparent;
 }
 
 .app-main {
   flex-grow: 1;
+  background: transparent;
 }
 
 /* ========== TYPOGRAPHY ========== */
+
 h1.title,
 h2.bigText,
 nav a,
 .nav-link,
 button.nav-link,
 .resume-title,
+.games-section-title,
 .site-footer {
   font-family: 'titleFont', sans-serif;
 }
-
 
 h2.bigText {
   font-size: 3rem;
@@ -102,6 +130,7 @@ h2.bigText {
 }
 
 /* ========== HEADER ========== */
+
 header .container {
   display: flex;
   align-items: center;
@@ -117,7 +146,9 @@ header .container {
 h1.title {
   font-size: 3rem;
 }
+
 /* ========== NAVIGATION ========== */
+
 nav {
   display: flex;
   justify-content: center;
@@ -131,26 +162,97 @@ nav ul {
   margin-top: 20px;
   padding: 0;
 }
+
 nav a,
 .nav-link,
 button.nav-link {
+  position: relative;
   background: none;
   border: none;
   color: black;
-  cursor: pointer;
-  font-size: 30px;
+  font-size: 38px;
   font-weight: bold;
   line-height: 1.5;
   text-decoration: none;
 }
 
+/* Sliding underline */
+nav a::before,
+.nav-link::before,
+button.nav-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 3px;
+  background: #ffd84d;
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+nav a:hover::before,
+.nav-link:hover::before,
+button.nav-link:hover::before {
+  width: 100%;
+}
+
 nav a:hover,
 .nav-link:hover,
 button.nav-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+/* Click sparkle */
+.nav-link {
+  transition: transform 0.18s ease;
+}
+
+.nav-link:active {
+  transform: scale(0.92);
+}
+
+.nav-link::after {
+  content: "✦ ✧ ✦";
+  position: absolute;
+  left: 50%;
+  top: -18px;
+  transform: translateX(-50%) scale(0);
+  opacity: 0;
+  color: #ffd84d;
+  font-size: 16px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.nav-link:focus::after {
+  animation: navSparkle 1s ease-out;
+}
+
+@keyframes navSparkle {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(6px) scale(0.4);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-8px) scale(1.1);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-14px) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-24px) scale(0.7);
+  }
 }
 
 /* ========== DROPDOWN ========== */
+
 .dropdown {
   position: relative;
 }
@@ -166,7 +268,7 @@ button.nav-link:hover {
   background-color: #444;
   border-radius: 6px;
   text-align: center;
-  z-index: 1;
+  z-index: 20;
 }
 
 .dropdownContent a {
@@ -185,6 +287,7 @@ button.nav-link:hover {
 }
 
 /* ========== HOME ========== */
+
 .home-container {
   min-height: 70vh;
   display: flex;
@@ -248,7 +351,6 @@ button.nav-link:hover {
   width: 500px;
   height: auto;
   object-fit: contain;
-  cursor: pointer;
   margin: 0;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -259,6 +361,7 @@ button.nav-link:hover {
 }
 
 /* ========== ANIMATIONS ========== */
+
 .big-bounce {
   animation: bigBounceAnim 0.5s ease;
 }
@@ -282,38 +385,56 @@ button.nav-link:hover {
 }
 
 /* ========== ABOUT ========== */
+
 .about-slide {
-  height: 100%;
+  min-height: 62vh;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  text-align: center;
-  padding: 20px;
+  justify-content: center;
+  gap: 45px;
+  padding: 35px 70px;
   box-sizing: border-box;
 }
 
+.about-image-frame {
+  width: 420px;
+  height: 420px;
+  background: white;
+  border-radius: 28px;
+  padding: 22px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
-  height: auto;
-  margin: 0 auto 5px;
-  border-radius: 12px;
+  border-radius: 18px;
+  background: transparent;
+  box-shadow: none;
 }
 
 .about-text {
-  max-width: 800px;
-  margin-top: 0;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #333;
+  max-width: 620px;
+  background: white;
+  padding: 34px 38px;
+  border-radius: 28px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  font-size: 1.25rem;
+  line-height: 1.65;
+  color: #222;
+  margin: 0;
+  text-align: left;
 }
-
-.resume-box img {
-  width: 350px;
-  margin-top: -325px;
-}
-
 /* ========== RESUME CARDS ========== */
+
 .resume-container {
   display: flex;
   gap: 20px;
@@ -367,7 +488,7 @@ button.nav-link:hover {
   margin: 10px;
   perspective: 1000px;
   scroll-snap-align: start;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
@@ -438,6 +559,7 @@ button.nav-link:hover {
 }
 
 /* ========== FOOTER ========== */
+
 .site-footer {
   background: white;
   border-radius: 8px;
@@ -447,9 +569,84 @@ button.nav-link:hover {
   text-align: center;
   color: black;
   font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ========== GAMES PAGE ========== */
+
+.games-page {
+  padding: 20px 60px 60px;
+  text-align: center;
+}
+
+.games-intro {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.games-section {
+  margin-top: 45px;
+}
+
+.games-section-title {
+  font-size: 2.4rem;
+  margin: 20px 0 24px;
+  text-align: center;
+}
+
+.games-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.game-card {
+  width: 280px;
+  min-height: 220px;
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.game-card h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.game-record {
+  font-weight: bold;
+  color: #5f3fa3;
+}
+
+.game-link {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #ffd84d;
+  color: #111;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.game-link:hover {
+  transform: scale(1.05);
 }
 
 /* ========== CUSTOM CURSOR ========== */
+
 html,
 body,
 .app-container,
@@ -476,14 +673,6 @@ body,
   display: block;
 }
 
-.cursor-trail::before {
-  content: "✦";
-  color: #ffee8c;
-  font-size: 16px;
-  line-height: 1;
-  display: block;
-}
-
 .cursor-trail {
   position: fixed;
   width: 16px;
@@ -493,6 +682,7 @@ body,
   animation: trailFade 0.6s ease-out forwards;
   z-index: 999998;
 }
+
 .cursor-trail::before {
   content: "✦";
   color: #ffee8c;
@@ -500,7 +690,6 @@ body,
   line-height: 1;
   display: block;
 }
-
 
 @keyframes trailFade {
   0% {
@@ -515,7 +704,26 @@ body,
 }
 
 /* ========== RESPONSIVE STYLES ========== */
+
 @media (max-width: 900px) {
+  header .container {
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 24px;
+  }
+
+  nav ul {
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+  }
+
+  nav a,
+  .nav-link,
+  button.nav-link {
+    font-size: 32px;
+  }
+
   .home-container {
     flex-direction: column;
     text-align: center;
@@ -527,6 +735,10 @@ body,
     max-width: 700px;
   }
 
+  .home-text::after {
+    display: none;
+  }
+
   h2.bigText {
     font-size: 2.5rem;
   }
@@ -536,12 +748,43 @@ body,
   }
 
   .mii-image {
-  width: 330px;
-  height: auto;
-  object-fit: contain;
-  cursor: pointer;
-  margin: 0;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
+    width: 330px;
+    height: auto;
+    object-fit: contain;
+    margin: 0;
+  }
 
+  .games-page {
+    padding: 20px 24px 50px;
+  }
+
+  .game-card {
+    width: min(100%, 320px);
+  }
+
+  .about-slide {
+    min-height: auto;
+    flex-direction: column;
+    gap: 24px;
+    padding: 30px 24px;
+  }
+  
+  .about-image-frame {
+    width: min(330px, 85vw);
+    height: min(330px, 85vw);
+    padding: 18px;
+  }
+  
+  .about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .about-text {
+    max-width: 700px;
+    padding: 28px 30px;
+    font-size: 1.15rem;
+    text-align: center;
+  }
 }

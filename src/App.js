@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Resume from './pages/Resume';
+import Games from './pages/Games';
 import CursorTrail from './components/CursorTrail';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="/games" element={<Games />} />
           </Routes>
         </main>
         <Footer />
