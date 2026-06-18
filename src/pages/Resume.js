@@ -262,26 +262,32 @@ function Resume() {
           img: sdsu,
           roles: [
             {
-              title: "M.S. Information Systems",
+              title: "Master's in Information Systems",
               dates: "Expected Graduation: May 2027",
               description: (
+                <p>
                 <ul>
                   <li>Member of SDSU Cyber Clinic (Cyber Center of Excellence) </li>
+                  <br></br>
                   <li>Master Builder at buildIT (SDSU's Makerspace)</li>
-                  <ul>
-                      <li>Relevant Coursework:</li>
-                      <li>Statistical Analysis</li>
-                      <li>Operations and Supply Chain Management</li>
-                      <li>Scientific Method Seminar</li>
-                      <li>Enterprise Data Management</li>
-                      <li>Cloud Computing</li>
-                      <li>Business Analytics</li>
-                      <li>Fundamentals of Cybersecurity Management</li>
-                      <li>AI For Cybersecurity</li>
-                      <li>Business Systems Analysis & Design</li>
-                      <li>Programming for Data-Driven Applications</li>
+                  <br></br>
                   </ul>
-                </ul>
+                  <li>Relevant Coursework:</li>
+                  <ul>
+                    
+                    <li>Statistical Analysis</li>
+                    <li>Operations and Supply Chain Management</li>
+                    <li>Scientific Method Seminar</li>
+                    <li>Enterprise Data Management</li>
+                    <li>Cloud Computing</li>
+                    <li>Business Analytics</li>
+                    <li>Fundamentals of Cybersecurity Management</li>
+                    <li>AI For Cybersecurity</li>
+                    <li>Business Systems Analysis & Design</li>
+                    <li>Programming for Data-Driven Applications</li>
+                  </ul>
+                
+                </p>
               )
             }
           ]
@@ -296,7 +302,10 @@ function Resume() {
               description: (
 
                 <p>
+                  <ul>
                   <li>Member of SASE (Society of Asian Scientists & Engineers</li>
+                  </ul>
+                  <br></br>
                   <li>Relevant Coursework:</li>
                   <ul>
                       <li>Relevant Coursework:</li>
@@ -498,18 +507,16 @@ function Resume() {
           </div>
         ))}
       </Carousel>
-      <p className="pdf-link">
-      <div style={{ textAlign: 'center', marginTop: '20px', marginBottom: '0px' }}>
-        <a
-          href="pdfResume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ fontSize: '18px', fontWeight: 'bold', textDecoration: 'underline', color: '#333' }}
-        >
-          Click here for a PDF version!
-        </a>
-      </div>
-      </p>
+      <div className="resume-download-container">
+  <a
+    href="pdfResume.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="resume-download"
+  >
+    Download Resume
+  </a>
+</div>
 
     </div>
   );

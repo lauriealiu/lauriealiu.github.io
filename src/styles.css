@@ -105,6 +105,19 @@ img {
 .app-main {
   flex-grow: 1;
   background: transparent;
+  animation: pageFade 0.35s ease;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ========== TYPOGRAPHY ========== */
@@ -135,14 +148,40 @@ h2.bigText {
 
 .resume-title::before {
   content: "✦ ";
-  color: #ffffff;
+  color: #ffd84d;
   font-size: 2rem;
 }
 
 .resume-title::after {
   content: " ✦";
-  color: #ffffff;
+  color: #ffd84d;
   font-size: 2rem;
+}
+
+.resume-download-container {
+  display: flex;
+  justify-content: center;
+  margin: 28px 0 10px;
+}
+
+.resume-download {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #ffd84d;
+  color: #111;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.15rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resume-download:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.18),
+    0 0 18px rgba(255, 216, 77, 0.45);
 }
 
 /* ========== HEADER ========== */
@@ -232,9 +271,8 @@ button.nav-link:hover {
 .nav-link.active::before {
   width: 100%;
   height: 4px;
-  background: #ffd84d;
+  background: linear-gradient(90deg, #ffd84d, #fff3a6, #ffd84d);
 }
-
 /* Click sparkle */
 .nav-link:active {
   transform: scale(0.92);
@@ -603,14 +641,8 @@ button.nav-link:hover {
   justify-content: flex-start;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x proximity;
   padding: 24px 20px 34px;
-}
-
-.work-container::before,
-.work-container::after {
-  content: "";
-  flex: 0 0 40px;
+  scroll-snap-type: none;
 }
 
 .center-container {
@@ -641,7 +673,6 @@ button.nav-link:hover {
   position: relative;
   margin: 10px;
   perspective: 1000px;
-  scroll-snap-align: start;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   overflow: visible;
@@ -996,4 +1027,13 @@ button:focus-visible {
   outline: 3px solid #ffd84d;
   outline-offset: 5px;
   border-radius: 8px;
+}
+
+@media (hover: none) {
+  html,
+  body,
+  .app-container,
+  .app-container * {
+    cursor: auto !important;
+  }
 }
