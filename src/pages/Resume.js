@@ -27,6 +27,35 @@ function Resume() {
       label: 'Work Experience',
       cards: [
         {
+          company: 'San Diego State University',
+          img: sdsu, // change this image if needed
+          roles: [
+            {
+              title: "IT Support Specialist",
+              dates: "Aug 2025 - present",
+              description: (
+                <ul>
+                  <li>Provided technical support for hardware, software, and network issues</li>
+                  <li>Assisted users via in-person, Zoom, and phone with prompt and professional service</li>
+                  <li>Troubleshot technical issues on Windows, macOS, ChromeOS, and mobile platforms</li>
+                  <li>Collaborated with IT team members to resolve complex technical issues</li>
+                  <li>Delivered clear, step-by-step guidance to non-technical users, improving user confidence and efficiency</li>
+                </ul>
+              )
+            },
+            {
+              title: "Graduate Research Assistant",
+              dates: "Aug 2025 - present",
+              description: (
+                <ul>
+                  <li>Created a Python script to pull school district data from EMMA (Electronic Municipal Market Access) to analyze 6-digit CUSIPs of relevance for further analysis</li>
+                  <li>Assisted in proctoring exams of 80 students</li>
+                </ul>
+              )
+            }
+          ]
+        },
+        {
           company: 'Americorps GO Tutors @ MATCH Charter High School',
           img: tutor,
           roles: [
@@ -139,6 +168,34 @@ function Resume() {
       label: 'Projects',
       cards: [
         {
+          company: 'San Diego State University',
+          img: sdsu,
+          roles: [
+            {
+              title: "Reconceptualizing Innovation in Human-AI Creative Collaboration: Balancing Agency, Machine Contribution, and Authenticity",
+              dates: "Aug 2025 - Dec 2025",
+              description: (
+
+                <p>This research explores how creative professionals experience authorship, authenticity, and creative flow when working with generative AI tools. Through qualitative interviews, the project shows that AI often sparks early discovery but can also shift creative work toward optimization and production, which creates tensions around agency, ownership, and meaning. The study reframes innovation as a relational, human-AI process and offers design insights for building AI tools that support uncertainty, serendipity, and authentic creative engagement rather than just efficiency.
+
+                  <br /><br />
+
+                  <a
+                    href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5932297"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="project-link"
+                  >
+                    Link to my paper
+                  </a>
+
+                </p>
+              )
+            }
+          ]
+        },
+        {
           company: '3D Exoplanetarium',
           img: spacelab,
           roles: [
@@ -149,6 +206,19 @@ function Resume() {
 
                 <p>
                   Exoplanetarium is a project with the goal to explore NASA/CalTech data from the TESS, Kepler and K2 Missions using various degrees of Machine Learning and Deep Natural Networks in the pursuit of Earth-Like planets around nearby stars in the Milky Way Galaxy. My own personal contribution to this project consisting of building the database of the application from scratch to be functional to open and close, as well as displaying data about each individual exoplanet.
+                
+                  <br /><br />
+
+                  <a
+                    href="https://spacelabdev.github.io/Exoplanetarium-3D/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="project-link"
+                  >
+                    Link to Exoplanetarium
+                  </a>
+
                 </p>
               )
             }
@@ -164,6 +234,19 @@ function Resume() {
               description: (
                 <p>
                   Independent research done on how the global music streaming platform is able to use its algorithm to suggest relevant songs to its users using natural language processing, content-based filtering, and collaborative filtering. I have arranged my findings through a poster (that has been presented) as well as a research paper written using LaTeX.
+                
+                  <br /><br />
+
+                  <a
+                    href="https://www.linkedin.com/in/lauriealiu/overlay/Project/1210006050/treasury/?profileId=ACoAACwxQXcBLA1gXTOv1U8nvRKm3pJ3Lh5bLsM"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="project-link"
+                  >
+                    Link to my paper
+                  </a>
+                
                 </p>
               )
             }
@@ -217,7 +300,7 @@ function Resume() {
           roles: [
             {
               title: "M.S. Information Systems",
-              dates: "Incoming Fall 2025",
+              dates: "Second year student",
               description: (
                 <ul>
 
@@ -231,6 +314,35 @@ function Resume() {
     {
       label: 'Volunteer Experience',
       cards: [
+        {
+          company: 'San Diego State University',
+          img: sdsu,
+          roles: [
+            {
+              title: "Cyber Clinic Member",
+              dates: "Jan 2026 - present",
+              description: (
+                <ul>
+                  <li>Delivered cybersecurity presentations to local elderly communities, focusing on online safety habits</li>
+                  <li>Taught participants how to recognize phishing emails, scam messages, suspicious links, and common fraud tactics (such as gift card and crypto scams)</li>
+                  <li>Explained cybersecurity concepts in accessible, non-technical language to help build confidence with technology use</li>
+                  <li>Answered questions and provided guidance on password safety, account protection, and how to avoid scam tactics</li>
+                </ul>
+              )
+            },
+            {
+              title: "Master Builder at buildIT",
+              dates: "Aug 2025 - present",
+              description: (
+                <ul>
+          <li>Supported students and community members in using makerspace tools, equipment, and creative technologies</li>
+          <li>Helped promote safe and responsible use of makerspace equipment</li>
+          <li>Helped create an inclusive, collaborative learning environment for users with varying levels of technical experience</li>
+        </ul>
+              )
+            }
+          ]
+        },
         {
           company: 'UPChieve',
           img: upchieve,
@@ -334,7 +446,11 @@ function Resume() {
         {sections.map((section, sectionIdx) => (
           <div key={sectionIdx} style={{ padding: '20px' }}>
             <h2 className="resume-title">{section.label}</h2>
-            <div className="resume-container">
+            <div
+  className={`resume-container ${
+    section.label === 'Work Experience' ? 'work-container' : 'center-container'
+  }`}
+>
               {section.cards.map((card, cardIdx) => {
                 const flippedKey = `${sectionIdx}-${cardIdx}`;
                 return (
