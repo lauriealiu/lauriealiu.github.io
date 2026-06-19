@@ -1373,7 +1373,16 @@ button.nav-link {
   }
 
   .home-text::after {
-    display: none;
+    display: block;
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -36px;
+    transform: translateX(-50%) rotate(90deg);
+  
+    border-left: 42px solid white;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
   }
 
   h2.bigText {
