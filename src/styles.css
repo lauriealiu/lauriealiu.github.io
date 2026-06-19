@@ -1270,13 +1270,14 @@ button.nav-link {
 @media (max-width: 900px) {
   header .container {
     flex-direction: column;
-    gap: 10px;
-    margin: 20px 24px;
-    .nav-link span::before,
-    .nav-link span::after,
-    .nav-link::after {
-      display: none;
-}
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+  
+    width: calc(100% - 48px);
+    margin: 20px auto;
+    padding: 28px 18px;
+    text-align: center;
   }
 
   .home-text {
@@ -1333,9 +1334,13 @@ button.nav-link {
   }
 
   nav ul {
-    gap: 22px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 26px 34px;
     flex-wrap: wrap;
-    margin-top: 5px;
+    margin: 8px auto 0;
+    padding: 0;
   }
 
   nav a,
@@ -1524,6 +1529,13 @@ button.nav-link {
   .game-card {
     width: min(100%, 320px);
   }
+
+  .nav-link span::before,
+.nav-link span::after,
+.nav-link::after {
+  display: none;
+}
+
 }
 
 /* ========== ACCESSIBILITY ========== */
