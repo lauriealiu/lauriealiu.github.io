@@ -670,6 +670,7 @@ button.nav-link:hover {
 }
 
 .resume-section {
+  padding-top: 22px;
   min-height: 560px;
 }
 
@@ -703,7 +704,7 @@ button.nav-link:hover {
 @media (min-width: 901px) {
   .resume-desktop .resume-tabs {
     gap: 18px;
-    margin: 42px auto 2px;
+    margin: 0px auto 2px;
   }
 
   .resume-desktop .resume-tab {
@@ -1350,7 +1351,7 @@ button.nav-link {
 
   .resume-page .resume-tabs {
     gap: 10px;
-    margin: 28px auto 8px;
+    margin: 10px auto 8px;
     padding: 0 12px;
   }
 
