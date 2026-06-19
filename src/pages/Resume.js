@@ -16,31 +16,55 @@ function Resume() {
   const [flippedIndexes, setFlippedIndexes] = useState({});
   const [mobileSection, setMobileSection] = useState(0);
   const [desktopSection, setDesktopSection] = useState(0);
+  const [scrollState, setScrollState] = useState({});
 
   const scrollRefs = useRef({});
 
   const scrollCardRow = (scrollKey, direction) => {
     const row = scrollRefs.current[scrollKey];
-
+  
     if (!row) return;
-
+  
     row.scrollBy({
       left: direction * 340,
       behavior: 'smooth'
     });
+  
+    setTimeout(() => {
+      updateScrollState(scrollKey);
+    }, 350);
   };
 
   const resetCardRow = (scrollKey) => {
     requestAnimationFrame(() => {
       const row = scrollRefs.current[scrollKey];
-
+  
       if (!row) return;
-
+  
       row.scrollTo({
         left: 0,
         behavior: 'auto'
       });
+  
+      updateScrollState(scrollKey);
     });
+  };
+
+  const updateScrollState = (scrollKey) => {
+    const row = scrollRefs.current[scrollKey];
+  
+    if (!row) return;
+  
+    const maxScrollLeft = row.scrollWidth - row.clientWidth;
+    const currentScrollLeft = row.scrollLeft;
+  
+    setScrollState((prev) => ({
+      ...prev,
+      [scrollKey]: {
+        atStart: currentScrollLeft <= 5,
+        atEnd: currentScrollLeft >= maxScrollLeft - 5
+      }
+    }));
   };
 
   const toggleFlip = (sectionIdx, cardIdx) => {
@@ -433,6 +457,7 @@ const renderCards = (section, sectionIdx, containerClassName, viewType) => {
       section.label === 'Projects' ||
       section.label === 'Awards'
     );
+  
 
 const cardsMarkup = section.cards.map((card, cardIdx) => {
   const flippedKey = `${sectionIdx}-${cardIdx}`;
@@ -493,45 +518,61 @@ if (isStaticSection) {
   );
 }
 
+const currentScrollState = scrollState[scrollKey] || {
+  atStart: true,
+  atEnd: false
+};
+
 return (
   <div
     key={scrollKey}
     className={`resume-card-scroll-wrapper ${containerClassName}`}
   >
-    <button
-      type="button"
-      className="card-scroll-button card-scroll-button-left"
-      aria-label={`Scroll ${section.label} cards left`}
-      onClick={(e) => {
-        e.preventDefault();
-        e.currentTarget.blur();
-        scrollCardRow(scrollKey, -1);
-      }}
-    >
-      ‹
-    </button>
+    {!currentScrollState.atStart && (
+      <button
+        type="button"
+        className="card-scroll-button card-scroll-button-left"
+        aria-label={`Scroll ${section.label} cards left`}
+        onClick={(e) => {
+          e.preventDefault();
+          e.currentTarget.blur();
+          scrollCardRow(scrollKey, -1);
+        }}
+      >
+        ‹
+      </button>
+    )}
 
     <div
       className="resume-card-scroll"
       ref={(el) => {
         scrollRefs.current[scrollKey] = el;
+
+        if (el) {
+          requestAnimationFrame(() => {
+            updateScrollState(scrollKey);
+          });
+        }
       }}
+      onScroll={() => updateScrollState(scrollKey)}
     >
       {cardsMarkup}
     </div>
 
-    <button
-      type="button"
-      className="card-scroll-button card-scroll-button-right"
-      aria-label={`Scroll ${section.label} cards right`}
-      onClick={(e) => {
-        e.preventDefault();
-        e.currentTarget.blur();
-        scrollCardRow(scrollKey, 1);
-      }}
-    >
-      ›
-    </button>
+    {!currentScrollState.atEnd && (
+      <button
+        type="button"
+        className="card-scroll-button card-scroll-button-right"
+        aria-label={`Scroll ${section.label} cards right`}
+        onClick={(e) => {
+          e.preventDefault();
+          e.currentTarget.blur();
+          scrollCardRow(scrollKey, 1);
+        }}
+      >
+        ›
+      </button>
+    )}
   </div>
 );
 
