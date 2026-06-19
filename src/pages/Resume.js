@@ -13,37 +13,44 @@ import buildIT from '../assets/photos/buildIT.png';
 import reconAI from '../assets/photos/reconai.png';
 
 function Resume() {
-const [flippedIndexes, setFlippedIndexes] = useState({});
-const [mobileSection, setMobileSection] = useState(0);
-const [desktopSection, setDesktopSection] = useState(0);
+  const [flippedIndexes, setFlippedIndexes] = useState({});
+  const [mobileSection, setMobileSection] = useState(0);
+  const [desktopSection, setDesktopSection] = useState(0);
 
-const scrollRefs = useRef({});
+  const scrollRefs = useRef({});
 
-const scrollCardRow = (scrollKey, direction) => {
-const row = scrollRefs.current[scrollKey];
+  const scrollCardRow = (scrollKey, direction) => {
+    const row = scrollRefs.current[scrollKey];
 
+    if (!row) return;
 
-if (!row) return;
+    row.scrollBy({
+      left: direction * 340,
+      behavior: 'smooth'
+    });
+  };
 
-row.scrollBy({
-  left: direction * 340,
-  behavior: 'smooth'
-});
+  const resetCardRow = (scrollKey) => {
+    requestAnimationFrame(() => {
+      const row = scrollRefs.current[scrollKey];
 
+      if (!row) return;
 
-};
+      row.scrollTo({
+        left: 0,
+        behavior: 'auto'
+      });
+    });
+  };
 
-const toggleFlip = (sectionIdx, cardIdx) => {
-const key = `${sectionIdx}-${cardIdx}`;
+  const toggleFlip = (sectionIdx, cardIdx) => {
+    const key = `${sectionIdx}-${cardIdx}`;
 
-
-setFlippedIndexes((prev) => ({
-  ...prev,
-  [key]: !prev[key]
-}));
-
-
-};
+    setFlippedIndexes((prev) => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
 
 const sections = [
 {
@@ -417,13 +424,15 @@ This research explores how creative professionals experience authorship, authent
 ];
 
 const renderCards = (section, sectionIdx, containerClassName, viewType) => {
-const scrollKey = `${viewType}-${sectionIdx}`;
+  const scrollKey = `${viewType}-${sectionIdx}`;
 
-
-const isStaticSection =
-  section.label === 'Education' ||
-  section.label === 'Projects' ||
-  section.label === 'Awards';
+  const isStaticSection =
+    viewType === 'desktop' &&
+    (
+      section.label === 'Education' ||
+      section.label === 'Projects' ||
+      section.label === 'Awards'
+    );
 
 const cardsMarkup = section.cards.map((card, cardIdx) => {
   const flippedKey = `${sectionIdx}-${cardIdx}`;
@@ -485,7 +494,10 @@ if (isStaticSection) {
 }
 
 return (
-  <div className={`resume-card-scroll-wrapper ${containerClassName}`}>
+  <div
+    key={scrollKey}
+    className={`resume-card-scroll-wrapper ${containerClassName}`}
+  >
     <button
       type="button"
       className="card-scroll-button card-scroll-button-left"
@@ -535,10 +547,11 @@ key={sectionIdx}
 type="button"
 className={`resume-tab ${desktopSection === sectionIdx ? 'active' : ''}`}
 onClick={(e) => {
-e.preventDefault();
-e.currentTarget.blur();
-setFlippedIndexes({});
-setDesktopSection(sectionIdx);
+  e.preventDefault();
+  e.currentTarget.blur();
+  setFlippedIndexes({});
+  setDesktopSection(sectionIdx);
+  resetCardRow(`desktop-${sectionIdx}`);
 }}
 >
 {section.label} </button>
@@ -570,6 +583,7 @@ setDesktopSection(sectionIdx);
             e.currentTarget.blur();
             setFlippedIndexes({});
             setMobileSection(sectionIdx);
+            resetCardRow(`mobile-${sectionIdx}`);
           }}
         >
           {section.label}
