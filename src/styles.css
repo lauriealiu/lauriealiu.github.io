@@ -693,6 +693,40 @@ button.nav-link:hover {
   }
 }
 
+@media (max-width: 1050px) and (min-width: 901px) {
+  header .container {
+    align-items: center;
+    text-align: center;
+  }
+
+  h1.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .title-decor {
+    display: block;
+    text-align: center;
+    margin: 8px auto 0;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav ul {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 /* ========== RESUME CARD SCROLLER ========== */
 
 .resume-card-scroll-wrapper {
