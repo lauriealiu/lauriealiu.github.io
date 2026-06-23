@@ -11,6 +11,7 @@ import pedrozzi from '../assets/photos/pedrozzi.png';
 import ccoe from '../assets/photos/ccoe.png';
 import buildIT from '../assets/photos/buildIT.png';
 import reconAI from '../assets/photos/reconai.png';
+import americorps from '../assets/photos/americorps.png';
 
 function Resume() {
   const [flippedIndexes, setFlippedIndexes] = useState({});
@@ -402,6 +403,21 @@ This research explores how creative professionals experience authorship, authent
 {
   label: 'Awards',
   cards: [
+    {
+      company: 'Segal Education Award',
+      img: americorps,
+      roles: [
+        {
+          title: 'Segal Education Award',
+          dates: 'June 2025',
+          description: (
+            <p>
+              After successfully completing a term of service, AmeriCorps alumni are eligible to receive a Segal AmeriCorps Education Award.
+            </p>
+          )
+        }
+      ]
+    },
     {
       company: 'UCSC Leadership Awards',
       img: ucsc,

@@ -919,7 +919,7 @@ padding-bottom: 6px;
 }
 
 .awards-card-row {
-  width: min(900px, calc(100vw - 100px));
+  width: min(1100px, calc(100vw - 100px));
 }
 
 .card-slide {
