@@ -46,7 +46,7 @@ function Games() {
     },
     {
       name: 'Pips',
-      record: 'Easy: 0:13, Medium: 0:35, Hard: 2:10',
+      record: 'Easy: 0:09, Medium: 0:35, Hard: 2:10',
       link: 'https://www.nytimes.com/games/pips',
       note: 'Place every domino in the right spot.'
     }
@@ -79,7 +79,7 @@ function Games() {
     },
     {
       name: 'Tango',
-      record: '0:13',
+      record: '0:12',
       link: 'https://www.linkedin.com/games/tango',
       note: 'Harmonize the grid.'
     },
