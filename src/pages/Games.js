@@ -67,7 +67,7 @@ function Games() {
     },
     {
       name: 'Patches',
-      record: '0:05',
+      record: '0:03',
       link: 'https://www.linkedin.com/games/patches',
       note: 'Piece it together.'
     },
