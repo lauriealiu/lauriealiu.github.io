@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a83e76f2.css",
-    "main.js": "/static/js/main.7c4961f0.js",
+    "main.css": "/static/css/main.fbdd6248.css",
+    "main.js": "/static/js/main.bfd11175.js",
     "static/media/me.png": "/static/media/me.1e50c0cee24dc84aa4c9.png",
     "static/media/pikmin.png": "/static/media/pikmin.407d85d929213c52bdd8.png",
     "static/media/miiGIF.gif": "/static/media/miiGIF.4f4fd352c1d37aa73f9c.gif",
@@ -15,6 +15,7 @@
     "static/media/tutor.png": "/static/media/tutor.4c577d42b1c5a0203c80.png",
     "static/media/spotify.png": "/static/media/spotify.15bf0d27b1d9d38f5581.png",
     "static/media/Chloe-Regular.otf": "/static/media/Chloe-Regular.4241d77ac6ac43cacda9.otf",
+    "static/media/americorps.png": "/static/media/americorps.db4c559ea057bc9feb44.png",
     "static/media/work.png": "/static/media/work.09b092b5ce8f4a848c09.png",
     "static/media/upchieve.png": "/static/media/upchieve.0ea47d4554e14c038c63.png",
     "static/media/sdsu.png": "/static/media/sdsu.a5ef49b0f3692389245d.png",
@@ -23,11 +24,11 @@
     "static/media/spacelab.png": "/static/media/spacelab.ed1cf04d70ef76c4c135.png",
     "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/index.html",
-    "main.a83e76f2.css.map": "/static/css/main.a83e76f2.css.map",
-    "main.7c4961f0.js.map": "/static/js/main.7c4961f0.js.map"
+    "main.fbdd6248.css.map": "/static/css/main.fbdd6248.css.map",
+    "main.bfd11175.js.map": "/static/js/main.bfd11175.js.map"
   },
   "entrypoints": [
-    "static/css/main.a83e76f2.css",
-    "static/js/main.7c4961f0.js"
+    "static/css/main.fbdd6248.css",
+    "static/js/main.bfd11175.js"
   ]
 }
