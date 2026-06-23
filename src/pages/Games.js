@@ -46,7 +46,7 @@ function Games() {
     },
     {
       name: 'Pips',
-      record: 'Easy: 0:08, Medium: 0:35, Hard: 2:10',
+      record: 'Easy: 0:08, Medium: 0:23, Hard: 1:50',
       link: 'https://www.nytimes.com/games/pips',
       note: 'Place every domino in the right spot.'
     }
