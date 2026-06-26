@@ -404,7 +404,7 @@ This research explores how creative professionals experience authorship, authent
   label: 'Awards',
   cards: [
     {
-      company: 'Americorps Segal Award',
+      company: 'Americorps Education Award',
       img: americorps,
       roles: [
         {
