@@ -15,8 +15,7 @@ import americorps from '../assets/photos/americorps.png';
 
 function Resume() {
   const [flippedIndexes, setFlippedIndexes] = useState({});
-  const [mobileSection, setMobileSection] = useState(0);
-  const [desktopSection, setDesktopSection] = useState(0);
+  const [activeSection, setActiveSection] = useState(0);
   const [scrollState, setScrollState] = useState({});
 
   const scrollRefs = useRef({});
@@ -595,20 +594,21 @@ return (
 
 };
 
-const activeMobileSection = sections[mobileSection];
+const activeMobileSection = sections[activeSection];
 
 return ( <div className="resume-page"> <div className="resume-desktop"> <div className="resume-tabs">
 {sections.map((section, sectionIdx) => (
 <button
 key={sectionIdx}
 type="button"
-className={`resume-tab ${desktopSection === sectionIdx ? 'active' : ''}`}
+className={`resume-tab ${activeSection === sectionIdx ? 'active' : ''}`}
 onClick={(e) => {
   e.preventDefault();
   e.currentTarget.blur();
   setFlippedIndexes({});
-  setDesktopSection(sectionIdx);
+  setActiveSection(sectionIdx);
   resetCardRow(`desktop-${sectionIdx}`);
+  resetCardRow(`mobile-${sectionIdx}`);
 }}
 >
 {section.label} </button>
@@ -616,12 +616,12 @@ onClick={(e) => {
 
 
     <div className="resume-section">
-      <h2 className="resume-title">{sections[desktopSection].label}</h2>
+      <h2 className="resume-title">{sections[activeSection].label}</h2>
       <p className="card-hint">Click any card to flip it over.</p>
 
       {renderCards(
-        sections[desktopSection],
-        desktopSection,
+        sections[activeSection],
+        activeSection,
         'desktop-card-container',
         'desktop'
       )}
@@ -634,12 +634,13 @@ onClick={(e) => {
         <button
           key={sectionIdx}
           type="button"
-          className={`resume-tab ${mobileSection === sectionIdx ? 'active' : ''}`}
+          className={`resume-tab ${activeSection === sectionIdx ? 'active' : ''}`}
           onClick={(e) => {
             e.preventDefault();
             e.currentTarget.blur();
             setFlippedIndexes({});
-            setMobileSection(sectionIdx);
+            setActiveSection(sectionIdx);
+            resetCardRow(`desktop-${sectionIdx}`);
             resetCardRow(`mobile-${sectionIdx}`);
           }}
         >
@@ -654,7 +655,7 @@ onClick={(e) => {
 
       {renderCards(
         activeMobileSection,
-        mobileSection,
+        activeSection,
         'mobile-card-container',
         'mobile'
       )}
