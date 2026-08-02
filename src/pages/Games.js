@@ -73,7 +73,7 @@ function Games() {
     },
     {
       name: 'Queens',
-      record: '0:12',
+      record: '0:10',
       link: 'https://www.linkedin.com/games/queens',
       note: 'Crown each region.'
     },
