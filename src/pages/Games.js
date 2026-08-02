@@ -131,7 +131,7 @@ function Games() {
       <p className="games-intro">
       Pick a puzzle, play your best game, and try to top my all-time records.
   <br />
-  House rules: no hints, no autocorrect, no shortcuts.
+  No hints or autocorrect used!
       </p>
 
       <section className="games-section">
