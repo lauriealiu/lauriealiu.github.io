@@ -481,12 +481,11 @@ const renderCards = (section, sectionIdx, containerClassName, viewType) => {
   const scrollKey = `${viewType}-${sectionIdx}`;
 
   const isStaticSection =
-    viewType === 'desktop' &&
-    (
-      section.label === 'Education' ||
-      section.label === 'Projects' ||
-      section.label === 'Awards'
-    );
+  viewType === 'desktop' &&
+  (
+    section.label === 'Education' ||
+    section.label === 'Projects'
+  );
   
 
 const cardsMarkup = section.cards.map((card, cardIdx) => {
@@ -535,13 +534,11 @@ const cardsMarkup = section.cards.map((card, cardIdx) => {
 if (isStaticSection) {
   return (
     <div
-    className={`static-card-row ${
-      section.label === 'Projects'
-        ? 'projects-card-row'
-        : section.label === 'Awards'
-          ? 'awards-card-row'
+      className={`static-card-row ${
+        section.label === 'Projects'
+          ? 'projects-card-row'
           : 'education-card-row'
-    }`}
+      }`}
     >
       {cardsMarkup}
     </div>
