@@ -403,6 +403,21 @@ This research explores how creative professionals experience authorship, authent
   label: 'Awards',
   cards: [
     {
+      company: 'Aztec Scholarships',
+      img: sdsu,
+      roles: [
+        {
+          title: 'Scott Burns Memorial Endowed Scholarship',
+          dates: 'August 2026',
+          description: (
+            <p>
+              Awarded to SDSU graduate students pursuing a master’s degree in the Fowler College of Business.
+            </p>
+          )
+        }
+      ]
+    },
+    {
       company: 'Americorps Education Award',
       img: americorps,
       roles: [
