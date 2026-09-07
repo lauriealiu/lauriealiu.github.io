@@ -91,7 +91,7 @@ function Games() {
     },
     {
       name: 'Crossclimb',
-      record: '0:18',
+      record: '0:17',
       link: 'https://www.linkedin.com/games/crossclimb',
       note: 'Unlock a trivia ladder.'
     },
