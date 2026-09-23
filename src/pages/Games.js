@@ -16,7 +16,7 @@ function Games() {
     },
     {
       name: 'NYT Crossword',
-      record: '11:35 (Monday)',
+      record: '4:42 (Monday)',
       link: 'https://www.nytimes.com/crosswords/game/daily',
       note: 'Get clued in with wordplay, every day.'
     },
