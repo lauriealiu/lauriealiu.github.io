@@ -415,6 +415,15 @@ This research explores how creative professionals experience authorship, authent
             </p>
           )
         }
+        {
+          title: 'Howard and Virginia Levenson Scholarship',
+          dates: 'October 2026',
+          description: (
+            <p>
+              The Howard and Virginia Levenson Scholarship will provide scholarship support to first-generation students in the Fowler College of Business with a a minimum overall cumulative GPA of 3.50 out of 4.00.
+            </p>
+          )
+        }
       ]
     },
     {
