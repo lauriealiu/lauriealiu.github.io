@@ -407,15 +407,6 @@ This research explores how creative professionals experience authorship, authent
       img: sdsu,
       roles: [
         {
-          title: 'Scott Burns Memorial Endowed Scholarship',
-          dates: 'August 2026',
-          description: (
-            <p>
-              Awarded to SDSU graduate students pursuing a master’s degree in the Fowler College of Business.
-            </p>
-          )
-        },
-        {
           title: 'Howard and Virginia Levenson Scholarship',
           dates: 'October 2026',
           description: (
@@ -423,7 +414,17 @@ This research explores how creative professionals experience authorship, authent
               The Howard and Virginia Levenson Scholarship will provide scholarship support to first-generation students in the Fowler College of Business with a a minimum overall cumulative GPA of 3.50 out of 4.00.
             </p>
           )
+        },
+        {
+          title: 'Scott Burns Memorial Endowed Scholarship',
+          dates: 'August 2026',
+          description: (
+            <p>
+              Awarded to SDSU graduate students pursuing a master’s degree in the Fowler College of Business.
+            </p>
+          )
         }
+        
       ]
     },
     {
@@ -446,20 +447,20 @@ This research explores how creative professionals experience authorship, authent
       img: ucsc,
       roles: [
         {
-          title: 'Jay Johnson Emerging Leader Award',
-          dates: 'May 2022',
-          description: (
-            <p>
-              This award is given to students who reflect the values, character, spirit, and servitude of Jay; are up-and-coming leaders in the community; demonstrate a growing capacity for commitment to service; and embody the spirit of selflessness, passion, caring, and humbleness.
-            </p>
-          )
-        },
-        {
           title: 'College Nine Leadership Certificate',
           dates: 'May 2023 and May 2024',
           description: (
             <p>
               The College Service Award goes to students who have contributed significantly to their colleges and campus during their time at College Nine.
+            </p>
+          )
+        },
+        {
+          title: 'Jay Johnson Emerging Leader Award',
+          dates: 'May 2022',
+          description: (
+            <p>
+              This award is given to students who reflect the values, character, spirit, and servitude of Jay; are up-and-coming leaders in the community; demonstrate a growing capacity for commitment to service; and embody the spirit of selflessness, passion, caring, and humbleness.
             </p>
           )
         }
