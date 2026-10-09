@@ -414,7 +414,7 @@ This research explores how creative professionals experience authorship, authent
               Awarded to SDSU graduate students pursuing a master’s degree in the Fowler College of Business.
             </p>
           )
-        }
+        },
         {
           title: 'Howard and Virginia Levenson Scholarship',
           dates: 'October 2026',
