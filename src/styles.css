@@ -192,7 +192,9 @@ h1.title {
   display: inline-block;
   white-space: nowrap;
   text-align: center;
+  font-family: "Apple Symbols", "Segoe UI Symbol", "Noto Sans Egyptian Hieroglyphs", sans-serif;
   font-size: 0.75em;
+  font-weight: normal;
 }
 
 /* ========== NAVIGATION ========== */
