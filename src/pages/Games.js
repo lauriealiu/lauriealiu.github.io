@@ -28,7 +28,7 @@ function Games() {
     },
     {
       name: 'Wordle',
-      record: '2 Guesses',
+      record: 'Wordle in 1 (Nov 3, 2026)',
       link: 'https://www.nytimes.com/games/wordle',
       note: 'Guess the 5-letter word with 6 chances.'
     },
